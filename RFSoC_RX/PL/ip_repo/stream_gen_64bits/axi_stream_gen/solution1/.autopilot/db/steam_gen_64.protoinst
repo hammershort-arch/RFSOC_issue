@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"steam_gen_64": {
+			"proto_instances": {
+			}
+		}
+	}
+}

@@ -1,0 +1,6 @@
+*axis_slr_x1y8_to_tx* cells=1074 slr=SLR2 318 SLR1 747
+*axis_slr_x1y4_to_z1* cells=1074 slr=SLR2 766 SLR1 299
+*axis_broadcaster_0* cells=0 slr=
+*axis_broadcaster_1* cells=0 slr=
+*link_x1y4/* cells=5231 slr=SLR1 5090
+*link_x1y8/* cells=5231 slr=SLR2 5090

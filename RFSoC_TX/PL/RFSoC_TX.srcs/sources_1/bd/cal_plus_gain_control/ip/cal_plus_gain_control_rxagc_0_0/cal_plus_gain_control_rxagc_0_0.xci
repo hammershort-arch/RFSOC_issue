@@ -1,0 +1,98 @@
+{
+  "schema": "xilinx.com:schema:json_instance:1.0",
+  "ip_inst": {
+    "xci_name": "cal_plus_gain_control_rxagc_0_0",
+    "cell_name": "agc_emu/rxagc_0",
+    "component_reference": "xilinx.com:module_ref:rxagc:1.0",
+    "ip_revision": "1",
+    "gen_directory": "../../../../../../RFSoC_TX.gen/sources_1/bd/cal_plus_gain_control/ip/cal_plus_gain_control_rxagc_0_0",
+    "parameters": {
+      "component_parameters": {
+        "Component_Name": [ { "value": "cal_plus_gain_control_rxagc_0_0", "resolve_type": "user", "usage": "all" } ]
+      },
+      "project_parameters": {
+        "ARCHITECTURE": [ { "value": "zynquplusRFSOC", "resolve_type": "generated", "usage": "all" } ],
+        "BASE_BOARD_PART": [ { "value": "", "resolve_type": "generated", "usage": "all" } ],
+        "BOARD_CONNECTIONS": [ { "value": "", "resolve_type": "generated", "usage": "all" } ],
+        "DEVICE": [ { "value": "xczu47dr", "resolve_type": "generated", "usage": "all" } ],
+        "PACKAGE": [ { "value": "ffvg1517", "resolve_type": "generated", "usage": "all" } ],
+        "PREFHDL": [ { "value": "VERILOG", "resolve_type": "generated", "usage": "all" } ],
+        "SILICON_REVISION": [ { "value": "", "resolve_type": "generated", "usage": "all" } ],
+        "SIMULATOR_LANGUAGE": [ { "value": "MIXED", "resolve_type": "generated", "usage": "all" } ],
+        "SPEEDGRADE": [ { "value": "-2", "resolve_type": "generated", "usage": "all" } ],
+        "STATIC_POWER": [ { "value": "", "resolve_type": "generated", "usage": "all" } ],
+        "TEMPERATURE_GRADE": [ { "value": "I", "resolve_type": "generated", "usage": "all" } ]
+      },
+      "runtime_parameters": {
+        "IPCONTEXT": [ { "value": "IP_Integrator" } ],
+        "IPREVISION": [ { "value": "1" } ],
+        "MANAGED": [ { "value": "TRUE" } ],
+        "OUTPUTDIR": [ { "value": "../../../../../../RFSoC_TX.gen/sources_1/bd/cal_plus_gain_control/ip/cal_plus_gain_control_rxagc_0_0" } ],
+        "SELECTEDSIMMODEL": [ { "value": "" } ],
+        "SHAREDDIR": [ { "value": "../../ipshared" } ],
+        "SWVERSION": [ { "value": "2025.2" } ],
+        "SYNTHESISFLOW": [ { "value": "OOC_HIERARCHICAL" } ]
+      }
+    },
+    "boundary": {
+      "ports": {
+        "clk": [ { "direction": "in" } ],
+        "resetn": [ { "direction": "in" } ],
+        "agc_enable": [ { "direction": "in" } ],
+        "watch_cycle": [ { "direction": "in", "size_left": "31", "size_right": "0" } ],
+        "wait_dsa_cycle": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "set_dsa_cycle": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "wait_cycle": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "set_clear_cycle": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "wait_clear_cycle": [ { "direction": "in", "size_left": "7", "size_right": "0" } ],
+        "over_voltage": [ { "direction": "in" } ],
+        "over_range": [ { "direction": "in" } ],
+        "over_threshold1": [ { "direction": "in" } ],
+        "over_threshold2": [ { "direction": "in" } ],
+        "manual_rx_att_state": [ { "direction": "in", "size_left": "2", "size_right": "0" } ],
+        "manual_rx_att_enable": [ { "direction": "in" } ],
+        "rx_att_state": [ { "direction": "out", "size_left": "2", "size_right": "0" } ],
+        "rx_att_update": [ { "direction": "out" } ],
+        "rx_att_ready": [ { "direction": "out" } ],
+        "clear_or": [ { "direction": "out" } ],
+        "clear_ov": [ { "direction": "out" } ],
+        "sw_rx_att": [ { "direction": "out", "size_left": "2", "size_right": "0" } ],
+        "rx_att2": [ { "direction": "out", "size_left": "1", "size_right": "0" } ],
+        "rx_att_db": [ { "direction": "out", "size_left": "7", "size_right": "0" } ]
+      },
+      "interfaces": {
+        "resetn": {
+          "vlnv": "xilinx.com:signal:reset:1.0",
+          "abstraction_type": "xilinx.com:signal:reset_rtl:1.0",
+          "mode": "slave",
+          "parameters": {
+            "POLARITY": [ { "value": "ACTIVE_LOW", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "RST": [ { "physical_name": "resetn" } ]
+          }
+        },
+        "clk": {
+          "vlnv": "xilinx.com:signal:clock:1.0",
+          "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+          "mode": "slave",
+          "parameters": {
+            "ASSOCIATED_RESET": [ { "value": "resetn", "value_src": "constant", "value_permission": "bd_and_user", "usage": "all" } ],
+            "FREQ_HZ": [ { "value": "240000000", "value_src": "user_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+            "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+            "CLK_DOMAIN": [ { "value": "cal_plus_gain_control_adc_clk", "value_src": "default_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_BUSIF": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "ASSOCIATED_PORT": [ { "value": "", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+            "INSERT_VIP": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "simulation.rtl", "is_ips_inferred": true, "is_static_object": false } ]
+          },
+          "port_maps": {
+            "CLK": [ { "physical_name": "clk" } ]
+          }
+        }
+      }
+    }
+  },
+  "checksum": "19960802"
+}

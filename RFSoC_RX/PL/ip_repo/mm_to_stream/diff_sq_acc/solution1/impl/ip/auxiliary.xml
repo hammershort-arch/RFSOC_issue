@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="mm_to_stream" xd:componentRef="mm_to_stream" xd:initiationInterval="134217737" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="ap_ctrl" xd:busTypeRef="acc_handshake" xd:type="acc_handshake"/>
+  <xd:arg xd:name="*(DRAM_IN)" xd:originalName="DRAM_IN" xd:direction="inout" xd:interfaceRef="m_axi_gmem" xd:busTypeRef="aximm" xd:arraySize="64" xd:dataWidth="256" xd:bufferDirection="in"/>
+  <xd:arg xd:name="DRAM_IN.V" xd:originalName="DRAM_IN" xd:direction="in" xd:interfaceRef="DRAM_IN_V" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:aximmInterfaceRef="m_axi_gmem" xd:dataWidth="64"/>
+  <xd:arg xd:name="length" xd:originalName="length" xd:direction="in" xd:interfaceRef="length_r" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="32"/>
+  <xd:arg xd:name="*(stream_out)" xd:originalName="stream_out" xd:direction="out" xd:interfaceRef="stream_out_V" xd:busTypeRef="axis" xd:dataWidth="256"/>
+  <xd:latencyEstimates xd:best-case="8" xd:worst-case="134217736" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="1266" xd:FF="1466" xd:BRAM="58" xd:DSP="0"/>
+</xd:acceleratorMap>

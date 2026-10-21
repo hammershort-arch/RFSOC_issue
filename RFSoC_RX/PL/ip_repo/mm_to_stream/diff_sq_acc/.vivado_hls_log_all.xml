@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'mm_to_stream/length' to 'mm_to_stream/length_r' to avoid the conflict with HDL keywords or other object names." projectName="diff_sq_acc" solutionName="solution1" date="2021-03-05T15:00:19.483+0800" type="Warning"/>
+        <logs message="WARNING: [SYNCHK 200-77] The top function 'mm_to_stream' (src/diff_sq_acc.cpp:37) has no outputs. Possible cause(s) are: (1) Output parameters are passed by value; (2) intended outputs (parameters or global variables) are never written; (3) there are infinite loops." projectName="diff_sq_acc" solutionName="solution1" date="2021-03-05T15:00:19.219+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Cannot find library 'xilinx/zynquplusRFSOC/zynquplusRFSOC'." projectName="diff_sq_acc" solutionName="solution1" date="2021-03-05T15:00:11.075+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Cannot find library 'C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynquplusRFSOC/zynquplusRFSOC.lib'." projectName="diff_sq_acc" solutionName="solution1" date="2021-03-05T15:00:10.895+0800" type="Warning"/>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'diff_sq_acc/length' to 'diff_sq_acc/length_r' to avoid the conflict with HDL keywords or other object names." projectName="diff_sq_acc" solutionName="Kintex_UltraScale" date="2018-04-11T17:43:47.379+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog>
+        <logs message="WARNING: [HLS 200-40] Cannot find library 'xilinx/zynquplusRFSOC/zynquplusRFSOC'." projectName="diff_sq_acc" solutionName="solution1" date="2021-03-05T15:00:36.383+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Cannot find library 'C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynquplusRFSOC/zynquplusRFSOC.lib'." projectName="diff_sq_acc" solutionName="solution1" date="2021-03-05T15:00:36.208+0800" type="Warning"/>
+      </packageLog>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

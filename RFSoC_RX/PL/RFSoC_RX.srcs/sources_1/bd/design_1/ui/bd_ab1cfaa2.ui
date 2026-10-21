@@ -1,0 +1,51 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-71,-39",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r4  2019-12-20 bk=1.5203 VDI=41 GEI=36 GUI=JA:10.0 TLS
+#  -string -flagsOSRD
+preplace port s_axi -pg 1 -lvl 0 -x -30 -y 220 -defaultsOSRD
+preplace port up_rstn -pg 1 -lvl 0 -x -30 -y 160 -defaultsOSRD
+preplace port up_clk -pg 1 -lvl 0 -x -30 -y 130 -defaultsOSRD
+preplace port up_mm2s_start -pg 1 -lvl 3 -x 860 -y 360 -defaultsOSRD
+preplace port up_s2mm_start -pg 1 -lvl 3 -x 860 -y 420 -defaultsOSRD
+preplace portBus up_rdata -pg 1 -lvl 3 -x 860 -y 90 -defaultsOSRD
+preplace portBus up_dma_ctrl -pg 1 -lvl 3 -x 860 -y 120 -defaultsOSRD
+preplace portBus up_mm2s_addr_h -pg 1 -lvl 3 -x 860 -y 150 -defaultsOSRD
+preplace portBus up_mm2s_addr_l -pg 1 -lvl 3 -x 860 -y 180 -defaultsOSRD
+preplace portBus up_mm2s_length -pg 1 -lvl 3 -x 860 -y 210 -defaultsOSRD
+preplace portBus up_mm2s_start_ctrl -pg 1 -lvl 3 -x 860 -y 330 -defaultsOSRD
+preplace portBus up_s2mm_addr_h -pg 1 -lvl 3 -x 860 -y 240 -defaultsOSRD
+preplace portBus up_s2mm_addr_l -pg 1 -lvl 3 -x 860 -y 270 -defaultsOSRD
+preplace portBus up_s2mm_length -pg 1 -lvl 3 -x 860 -y 300 -defaultsOSRD
+preplace portBus up_s2mm_start_ctrl -pg 1 -lvl 3 -x 860 -y 390 -defaultsOSRD
+preplace inst axi_lite_interface_0 -pg 1 -lvl 1 -x 150 -y 270 -defaultsOSRD
+preplace inst status_reg_0 -pg 1 -lvl 2 -x 480 -y 250 -defaultsOSRD
+preplace netloc axi_lite_interface_0_up_wreq 1 1 1 N 230
+preplace netloc axi_lite_interface_0_up_waddr 1 1 1 N 250
+preplace netloc axi_lite_interface_0_up_wdata 1 1 1 N 270
+preplace netloc axi_lite_interface_0_up_rreq 1 1 1 N 290
+preplace netloc axi_lite_interface_0_up_raddr 1 1 1 N 310
+preplace netloc up_rstn_0_1 1 0 2 10J 160 290J
+preplace netloc up_clk_0_1 1 0 2 -10J 150 300J
+preplace netloc status_reg_0_up_wack 1 0 3 -10 530 NJ 530 670
+preplace netloc status_reg_0_up_rack 1 0 3 10 520 NJ 520 660
+preplace netloc status_reg_0_up_rdata 1 0 3 0 510 N 510 740
+preplace netloc status_reg_0_up_dma_ctrl 1 2 1 780J 110n
+preplace netloc status_reg_0_up_mm2s_addr_h 1 2 1 780J 130n
+preplace netloc status_reg_0_up_mm2s_addr_l 1 2 1 770J 150n
+preplace netloc status_reg_0_up_mm2s_length 1 2 1 760J 170n
+preplace netloc status_reg_0_up_mm2s_start 1 2 1 700J 270n
+preplace netloc status_reg_0_up_mm2s_start_ctrl 1 2 1 710J 250n
+preplace netloc status_reg_0_up_s2mm_addr_h 1 2 1 750J 190n
+preplace netloc status_reg_0_up_s2mm_addr_l 1 2 1 730J 210n
+preplace netloc status_reg_0_up_s2mm_length 1 2 1 720J 230n
+preplace netloc status_reg_0_up_s2mm_start 1 2 1 680J 310n
+preplace netloc status_reg_0_up_s2mm_start_ctrl 1 2 1 690J 290n
+preplace netloc Conn1 1 0 1 N 220
+levelinfo -pg 1 -30 150 480 860
+pagesize -pg 1 -db -bbox -sgen -140 -10 1080 620
+"
+}
+0

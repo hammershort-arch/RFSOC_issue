@@ -1,0 +1,57 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.430959",
+   "Default View_TopLeft":"-1272,2",
+   "ExpandedHierarchyInLayout":"/hier_rx_x1y8/hier_aurora_rst_rx|/hier_rx_x1y8/hier_aurora_rst_rx1",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port s_axi_rx -pg 1 -lvl 0 -x 0 -y 430 -defaultsOSRD
+preplace port s_axi_rx1 -pg 1 -lvl 0 -x 0 -y 1090 -defaultsOSRD
+preplace port M_AXIS_2 -pg 1 -lvl 2 -x 850 -y 460 -defaultsOSRD
+preplace port M_AXIS_3 -pg 1 -lvl 2 -x 850 -y 1120 -defaultsOSRD
+preplace port port-id_s_axis_aclk -pg 1 -lvl 0 -x 0 -y 490 -defaultsOSRD
+preplace port port-id_m_axis_aclk -pg 1 -lvl 0 -x 0 -y 520 -defaultsOSRD
+preplace port port-id_s_axis_aresetn -pg 1 -lvl 0 -x 0 -y 460 -defaultsOSRD
+preplace port port-id_s_axis_aresetn1 -pg 1 -lvl 0 -x 0 -y 760 -defaultsOSRD
+preplace port port-id_dest_arst -pg 1 -lvl 2 -x 850 -y 630 -defaultsOSRD
+preplace port port-id_dest_arst1 -pg 1 -lvl 2 -x 850 -y 750 -defaultsOSRD
+preplace inst xpm_cdc_gen_0 -pg 1 -lvl 1 -x 260 -y 630 -defaultsOSRD
+preplace inst xpm_cdc_gen_1 -pg 1 -lvl 1 -x 260 -y 750 -defaultsOSRD
+preplace inst hier_aurora_rst_rx -pg 1 -lvl 1 -x 260 -y 90 -defaultsOSRD
+preplace inst hier_aurora_rst_rx1 -pg 1 -lvl 1 -x 260 -y 890 -defaultsOSRD
+preplace inst hier_aurora_rst_rx|axis_data_fifo_0 -pg 1 -lvl 1 -x 340 -y 310 -defaultsOSRD
+preplace inst hier_aurora_rst_rx|header_extraction_v2_0 -pg 1 -lvl 1 -x 340 -y 140 -defaultsOSRD
+preplace inst hier_aurora_rst_rx|axis_data_fifo_1 -pg 1 -lvl 1 -x 340 -y 460 -defaultsOSRD
+preplace inst hier_aurora_rst_rx1|axis_data_fifo_0 -pg 1 -lvl 1 -x 330 -y 920 -defaultsOSRD
+preplace inst hier_aurora_rst_rx1|header_extraction_v2_0 -pg 1 -lvl 2 -x 590 -y 940 -defaultsOSRD
+preplace inst hier_aurora_rst_rx1|axis_data_fifo_1 -pg 1 -lvl 2 -x 590 -y 1120 -defaultsOSRD
+preplace netloc aclk_1 1 0 1 30 470n
+preplace netloc clk_1 1 0 1 40 490n
+preplace netloc s_axis_aresetn1_1 1 0 1 20 760n
+preplace netloc s_axis_aresetn_1 1 0 1 50 450n
+preplace netloc xpm_cdc_gen_0_dest_arst 1 1 1 NJ 630
+preplace netloc xpm_cdc_gen_1_dest_arst 1 1 1 NJ 750
+preplace netloc Conn1 1 1 1 NJ 460
+preplace netloc Conn2 1 1 1 NJ 1120
+preplace netloc s_axi_rx1_1 1 0 1 NJ 1090
+preplace netloc s_axi_rx_1 1 0 1 NJ 430
+preplace netloc hier_aurora_rst_rx|aclk_1 1 0 1 200 140n
+preplace netloc hier_aurora_rst_rx|clk_1 1 0 1 N 490
+preplace netloc hier_aurora_rst_rx|s_axis_aresetn_1 1 0 1 210 160n
+preplace netloc hier_aurora_rst_rx|Aurora_RST_RX_0_M_AXIS_0 1 1 1 N 460
+preplace netloc hier_aurora_rst_rx|S_AXIS_1 1 0 1 N 430
+preplace netloc hier_aurora_rst_rx1|aclk_1 1 0 2 210 1110 450
+preplace netloc hier_aurora_rst_rx1|clk_1 1 0 2 NJ 1150 N
+preplace netloc hier_aurora_rst_rx1|s_axis_aresetn_1 1 0 2 200 1100 460
+preplace netloc hier_aurora_rst_rx1|Aurora_RST_RX_0_M_AXIS_0 1 2 1 N 1120
+preplace netloc hier_aurora_rst_rx1|axis_data_fifo_0_M_AXIS 1 1 1 N 920
+preplace netloc hier_aurora_rst_rx1|S_AXIS_1 1 0 2 NJ 1090 N
+levelinfo -pg 1 0 260 850
+levelinfo -hier hier_aurora_rst_rx * 340 *
+levelinfo -hier hier_aurora_rst_rx1 * 330 590 *
+pagesize -pg 1 -db -bbox -sgen -160 0 970 1230
+pagesize -hier hier_aurora_rst_rx -db -bbox -sgen 170 30 500 550
+pagesize -hier hier_aurora_rst_rx1 -db -bbox -sgen 170 830 750 1210
+"
+}
+

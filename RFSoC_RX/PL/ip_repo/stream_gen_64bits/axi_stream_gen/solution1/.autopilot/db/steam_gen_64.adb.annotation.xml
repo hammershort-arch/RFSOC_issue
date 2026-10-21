@@ -1,0 +1,10 @@
+<annotationInfo>
+<annotationInfo>
+<item  id="20" filename="stream.cpp" linenumber="24" name="tmp" contextFuncName="steam_gen_64" moduleName="steam_gen_64" rtlName="tmp_fu_99_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="39" fileDirectory="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\ps_test\ip\stream_gen_64bits"><\/item>
+<item  id="24" filename="stream.cpp" linenumber="20" name="i_cast" contextFuncName="steam_gen_64" moduleName="steam_gen_64" rtlName="i_cast_fu_105_p1" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\ps_test\ip\stream_gen_64bits"><\/item>
+<item  id="25" filename="stream.cpp" linenumber="20" name="tmp_1" contextFuncName="steam_gen_64" moduleName="steam_gen_64" rtlName="tmp_1_fu_109_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="20" fileDirectory="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\ps_test\ip\stream_gen_64bits"><\/item>
+<item  id="26" filename="stream.cpp" linenumber="22" name="tmpC_data_V" contextFuncName="steam_gen_64" moduleName="steam_gen_64" rtlName="tmpC_data_V_fu_114_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="38" fileDirectory="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\ps_test\ip\stream_gen_64bits"><\/item>
+<item  id="30" filename="stream.cpp" linenumber="22" name="tmp_data_V_1" contextFuncName="steam_gen_64" moduleName="steam_gen_64" rtlName="tmp_data_V_1_fu_120_p1" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\ps_test\ip\stream_gen_64bits"><\/item>
+<item  id="31" filename="stream.cpp" linenumber="24" name="tmp_last_V" contextFuncName="steam_gen_64" moduleName="steam_gen_64" rtlName="tmp_last_V_fu_125_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="20" fileDirectory="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\ps_test\ip\stream_gen_64bits"><\/item>
+<\/annotationInfo>
+</annotationInfo>

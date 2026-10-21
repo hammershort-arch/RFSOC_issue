@@ -1,0 +1,9 @@
+sv xil_defaultlib "AESL_axi_master_gmem.v"
+sv xil_defaultlib "AESL_axi_slave_CONFIGBUS.v"
+sv xil_defaultlib "AESL_cdc_unit.v"
+sv xil_defaultlib "diff_sq_acc.autotb.v"
+sv xil_defaultlib "diff_sq_acc.v"
+sv xil_defaultlib "diff_sq_acc_CONFIGBUS_s_axi.v"
+sv xil_defaultlib "diff_sq_acc_empty.v"
+sv xil_defaultlib "diff_sq_acc_gmem_m_axi.v"
+

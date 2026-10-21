@@ -1,0 +1,45 @@
+digraph tx_top {
+  graph [rankdir=LR, fontname="Noto Sans CJK TC", fontsize=12, nodesep=0.25, ranksep=0.5, bgcolor="white", label="RFSoC_TX (z2) design_1 頂層架構（8 通道，以 chN 表示其中一個）", labelloc=t];
+  node  [shape=box, style="rounded,filled", fontname="Noto Sans CJK TC", fontsize=10, fillcolor="#EEF2F8", color="#14213D"];
+  edge  [fontname="Noto Sans CJK TC", fontsize=9, color="#3A4555"];
+  vu13p [label="VU13P\n(8 條 2-lane Aurora)", fillcolor="#FFF2CC"];
+  subgraph cluster_aur { label="同事原有設計（未修改）"; style="rounded,dashed"; color="#6B7585"; fontsize=10;
+    aur [label="aurora_gty_47drto13p_0\n(BD container, 4 quad × 2 core)\nheader_extraction"];
+    hrx [label="hier_rx_x0y1~4\ndata_delay → FIFO → data_aligner\n(依 timestamp 釋放)"];
+    mts [label="hier_mts / timer_1\nSYSREF / 時間基準"];
+    gpio [label="axi_gpio_arstn / pma_rst\naxi_delay"];
+  }
+  subgraph cluster_ch { label="cal_plus_gain_control_chN（BD container，×8，本次新增）"; style="rounded,filled"; fillcolor="#F4FAF0"; color="#2E7D32"; fontsize=10;
+    mux [label="Signal Source Mux\n(mem39)", fillcolor="#FFFFFF"];
+    byp [label="axis_iq_bypass\n(mem38)", fillcolor="#FFFFFF"];
+    fir [label="In-band FIR", fillcolor="#FFFFFF"];
+    cal [label="Delay / Phase /\nGain Compensation\n(+ gain 表 BRAM)", fillcolor="#FFFFFF"];
+    pf  [label="Power Fit", fillcolor="#FFFFFF"];
+    agc [label="Gain Control\n(agc_emu: TXAGC / RXAGC / SR)", fillcolor="#FFFFFF"];
+    rm  [label="addressable_reg_map", fillcolor="#FFFFFF"];
+  }
+  comb [label="rfdc_iq_combine_chN\n(I + Q → 160-bit)"];
+  rfdc_adc [label="RFDC ADC chN\n(m{T}{0/2} I, m{T}{1/3} Q)", fillcolor="#DDEBF7"];
+  rfdc_dac [label="RFDC DAC s{T}{0/2}", fillcolor="#DDEBF7"];
+  sysreg [label="system_reg_map\n(8 通道共用)"];
+  vio [label="vio_ext_inputs\n(暫時的外部輸入)"];
+  ps [label="PS (Zynq US+)\nsmartconnect_0", fillcolor="#FCE4D6"];
+
+  vu13p -> aur [label="GT RX"];
+  aur -> hrx [label="M_AXIS_X0YN_Cn"];
+  mts -> hrx [label="timestamp", style=dashed];
+  hrx -> mux [label="in_0 (Aurora)"];
+  rfdc_adc -> comb -> mux [label="in_1 (ADC)"];
+  mux -> byp [label="s_axis_iq"];
+  byp -> fir [label="m_axis_cal\n(I/Q 拆分)"];
+  fir -> cal;
+  cal -> byp [label="s_axis_cal"];
+  byp -> rfdc_dac [label="m_axis_iq"];
+  byp -> pf [label="I / Q（分流）"];
+  pf -> agc [label="pf / goal_rel"];
+  agc -> cal [label="gain index"];
+  rfdc_adc -> agc [label="flags", style=dashed];
+  vio -> agc [style=dashed]; vio -> pf [style=dashed];
+  sysreg -> rm [label="reg_*", style=dashed];
+  ps -> rm [label="AXI-Lite", style=dashed]; ps -> sysreg [style=dashed]; ps -> gpio [style=dashed];
+}

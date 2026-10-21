@@ -1,0 +1,186 @@
+{
+   "ActiveEmotionalView":"Reduced Jogs",
+   "Default View_ScaleFactor":"0.819366",
+   "Default View_TopLeft":"679,2",
+   "ExpandedHierarchyInLayout":"",
+   "Grouping and No Loops_ScaleFactor":"0.884439",
+   "Grouping and No Loops_TopLeft":"-104,-298",
+   "No Loops_ExpandedHierarchyInLayout":"",
+   "No Loops_Layout":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port sys -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace port gt_x0y13_diff_ref -pg 1 -lvl 0 -x 0 -y 260 -defaultsOSRD
+preplace port GT_SERIAL_TX_0 -pg 1 -lvl 8 -x 2000 -y 60 -defaultsOSRD
+preplace port GT_SERIAL_RX_0 -pg 1 -lvl 0 -x 0 -y 60 -defaultsOSRD
+preplace port gt_x0y11_diff_ref -pg 1 -lvl 0 -x 0 -y 370 -defaultsOSRD
+preplace port GT_SERIAL_RX_1 -pg 1 -lvl 0 -x 0 -y 400 -defaultsOSRD
+preplace port GT_SERIAL_TX_1 -pg 1 -lvl 8 -x 2000 -y 400 -defaultsOSRD
+preplace port GT_SERIAL_RX_2 -pg 1 -lvl 0 -x 0 -y 230 -defaultsOSRD
+preplace port GT_SERIAL_TX_2 -pg 1 -lvl 8 -x 2000 -y 100 -defaultsOSRD
+preplace port GT_SERIAL_RX_3 -pg 1 -lvl 0 -x 0 -y 430 -defaultsOSRD
+preplace port GT_SERIAL_TX_3 -pg 1 -lvl 8 -x 2000 -y 370 -defaultsOSRD
+preplace inst util_ds_buf_0 -pg 1 -lvl 1 -x 150 -y 150 -defaultsOSRD -pinDir CLK_IN_D left -pinY CLK_IN_D 20L -pinBusDir IBUF_OUT right -pinBusY IBUF_OUT 20R
+preplace inst rst_data_pg -pg 1 -lvl 4 -x 1040 -y 290 -defaultsOSRD -pinDir clk left -pinY clk 20L -pinBusDir probe_out0 right -pinBusY probe_out0 20R
+preplace inst hier_x0y13 -pg 1 -lvl 3 -x 720 -y 40 -swap {13 1 2 3 23 5 6 26 8 9 4 11 12 0 14 15 7 17 18 19 20 21 22 10 24 25 16 27 28 29 30} -defaultsOSRD -pinDir USER_DATA_S_AXIS_TX left -pinY USER_DATA_S_AXIS_TX 100L -pinDir USER_DATA_M_AXIS_RX right -pinY USER_DATA_M_AXIS_RX 140R -pinDir gt_x0y13_diff_ref left -pinY gt_x0y13_diff_ref 220L -pinDir GT_SERIAL_TX_0 right -pinY GT_SERIAL_TX_0 20R -pinDir GT_SERIAL_RX_0 left -pinY GT_SERIAL_RX_0 20L -pinDir USER_DATA_S_AXIS_TX1 left -pinY USER_DATA_S_AXIS_TX1 80L -pinDir USER_DATA_M_AXIS_RX1 right -pinY USER_DATA_M_AXIS_RX1 120R -pinDir GT_SERIAL_TX_2 right -pinY GT_SERIAL_TX_2 60R -pinDir GT_SERIAL_RX_2 left -pinY GT_SERIAL_RX_2 190L -pinDir user_clk_out right -pinY user_clk_out 180R -pinDir init_clk left -pinY init_clk 240L
+preplace inst hier_x0y11 -pg 1 -lvl 6 -x 1600 -y 350 -swap {16 1 2 3 20 5 6 0 8 9 10 11 12 7 14 15 26 17 18 19 23 21 22 4 24 25 13 27 28 29 30} -defaultsOSRD -pinDir USER_DATA_S_AXIS_TX left -pinY USER_DATA_S_AXIS_TX 180L -pinDir USER_DATA_M_AXIS_RX right -pinY USER_DATA_M_AXIS_RX 180R -pinDir gt_x0y11_diff_ref left -pinY gt_x0y11_diff_ref 20L -pinDir GT_SERIAL_TX_1 right -pinY GT_SERIAL_TX_1 50R -pinDir GT_SERIAL_RX_1 left -pinY GT_SERIAL_RX_1 50L -pinDir USER_DATA_S_AXIS_TX1 left -pinY USER_DATA_S_AXIS_TX1 200L -pinDir USER_DATA_M_AXIS_RX1 right -pinY USER_DATA_M_AXIS_RX1 200R -pinDir GT_SERIAL_TX_3 right -pinY GT_SERIAL_TX_3 20R -pinDir GT_SERIAL_RX_3 left -pinY GT_SERIAL_RX_3 80L -pinDir init_clk left -pinY init_clk 220L -pinDir clk right -pinY clk 220R
+preplace inst hier_rx_x0y13 -pg 1 -lvl 4 -x 1040 -y 140 -swap {4 1 2 3 0 5 6 7 9 8} -defaultsOSRD -pinDir s_axi_rx left -pinY s_axi_rx 40L -pinDir s_axi_rx1 left -pinY s_axi_rx1 20L -pinDir aclk left -pinY aclk 80L -pinDir i_rst left -pinY i_rst 60L
+preplace inst hier_tx_x0y13 -pg 1 -lvl 2 -x 380 -y 100 -swap {0 1 2 3 4 5 6 7 8 10 9} -defaultsOSRD -pinDir M_AXIS right -pinY M_AXIS 20R -pinDir M_AXIS1 right -pinY M_AXIS1 40R -pinDir clk_in1 left -pinY clk_in1 70L -pinDir m_axis_aclk right -pinY m_axis_aclk 80R -pinDir src_arst right -pinY src_arst 60R
+preplace inst hier_tx_x0y11 -pg 1 -lvl 5 -x 1270 -y 510 -swap {0 1 2 3 4 5 6 7 10 9 8} -defaultsOSRD -pinDir M_AXIS right -pinY M_AXIS 20R -pinDir M_AXIS1 right -pinY M_AXIS1 40R -pinDir clk_in1 left -pinY clk_in1 40L -pinDir m_axis_aclk right -pinY m_axis_aclk 130R -pinDir src_arst left -pinY src_arst 20L
+preplace inst hier_rx_x0y11 -pg 1 -lvl 7 -x 1890 -y 510 -defaultsOSRD -pinDir s_axi_rx left -pinY s_axi_rx 20L -pinDir s_axi_rx1 left -pinY s_axi_rx1 40L -pinDir aclk left -pinY aclk 60L -pinDir i_rst left -pinY i_rst 110L
+preplace netloc aurora_64b66b_0_user_clk_out 1 2 2 480 350 920
+preplace netloc util_ds_buf_0_IBUF_OUT 1 1 5 280 280 500 470 NJ 470 1160 450 1400J
+preplace netloc vio_1_probe_out0 1 2 5 520 330 940 450 1140 470 1380J 620 N
+preplace netloc hier_x0y11_clk 1 5 2 NJ 640 1800
+preplace netloc CLK_IN_D_0_1 1 0 1 NJ 170
+preplace netloc GT_DIFF_REFCLK1_0_1 1 0 3 NJ 260 NJ 260 NJ
+preplace netloc GT_DIFF_REFCLK1_1_1 1 0 6 NJ 370 NJ 370 NJ 370 NJ 370 NJ 370 NJ
+preplace netloc GT_SERIAL_RX_0_1 1 0 3 NJ 60 NJ 60 NJ
+preplace netloc GT_SERIAL_RX_1_1 1 0 6 NJ 400 NJ 400 NJ 400 NJ 400 NJ 400 NJ
+preplace netloc GT_SERIAL_RX_2_1 1 0 3 NJ 230 NJ 230 NJ
+preplace netloc GT_SERIAL_RX_3_1 1 0 6 NJ 430 NJ 430 NJ 430 NJ 430 NJ 430 NJ
+preplace netloc aurora_64b66b_0_GT_SERIAL_TX 1 3 5 NJ 60 NJ 60 NJ 60 NJ 60 NJ
+preplace netloc aurora_64b66b_0_USER_DATA_M_AXIS_RX 1 3 1 N 180
+preplace netloc aurora_64b66b_1_GT_SERIAL_TX 1 6 2 NJ 400 NJ
+preplace netloc aurora_x0y11_1_GT_SERIAL_TX 1 6 2 NJ 370 NJ
+preplace netloc aurora_x0y13_1_GT_SERIAL_TX 1 3 5 NJ 100 NJ 100 NJ 100 NJ 100 NJ
+preplace netloc aurora_x0y13_1_USER_DATA_M_AXIS_RX 1 3 1 N 160
+preplace netloc axis_data_fifo_2_M_AXIS 1 2 1 N 120
+preplace netloc axis_data_fifo_3_M_AXIS 1 2 1 N 140
+preplace netloc hier_tx_x0y11_M_AXIS 1 5 1 N 530
+preplace netloc hier_tx_x0y11_M_AXIS1 1 5 1 N 550
+preplace netloc hier_x0y11_USER_DATA_M_AXIS_RX 1 6 1 N 530
+preplace netloc hier_x0y11_USER_DATA_M_AXIS_RX1 1 6 1 N 550
+levelinfo -pg 1 0 150 380 720 1040 1270 1600 1890 2000
+pagesize -pg 1 -db -bbox -sgen -170 0 2160 690
+",
+   "No Loops_ScaleFactor":"0.666667",
+   "No Loops_TopLeft":"-162,-404",
+   "Reduced Jogs_ExpandedHierarchyInLayout":"",
+   "Reduced Jogs_Layout":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port GT_SERIAL_RX_1_2 -pg 1 -lvl 0 -x 0 -y 1020 -defaultsOSRD
+preplace port GT_SERIAL_RX_1_6 -pg 1 -lvl 0 -x 0 -y 1390 -defaultsOSRD
+preplace port GT_SERIAL_RX_3_2 -pg 1 -lvl 0 -x 0 -y 1050 -defaultsOSRD
+preplace port GT_SERIAL_RX_3_6 -pg 1 -lvl 0 -x 0 -y 1360 -defaultsOSRD
+preplace port GT_SERIAL_TX_1_2 -pg 1 -lvl 8 -x 2600 -y 990 -defaultsOSRD
+preplace port GT_SERIAL_TX_1_6 -pg 1 -lvl 8 -x 2600 -y 1260 -defaultsOSRD
+preplace port GT_SERIAL_TX_3_2 -pg 1 -lvl 8 -x 2600 -y 1020 -defaultsOSRD
+preplace port GT_SERIAL_TX_3_6 -pg 1 -lvl 8 -x 2600 -y 1290 -defaultsOSRD
+preplace port M_AXIS_x1y4 -pg 1 -lvl 8 -x 2600 -y 730 -defaultsOSRD
+preplace port M_AXIS_x1y4_1 -pg 1 -lvl 8 -x 2600 -y 1370 -defaultsOSRD
+preplace port M_AXIS_x1y8 -pg 1 -lvl 8 -x 2600 -y 890 -defaultsOSRD
+preplace port M_AXIS_x1y8_1 -pg 1 -lvl 8 -x 2600 -y 1120 -defaultsOSRD
+preplace port S_AXIS_x1y4 -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace port S_AXIS_x1y4_1 -pg 1 -lvl 0 -x 0 -y 370 -defaultsOSRD
+preplace port S_AXIS_x1y8 -pg 1 -lvl 0 -x 0 -y 670 -defaultsOSRD
+preplace port S_AXIS_x1y8_1 -pg 1 -lvl 0 -x 0 -y 870 -defaultsOSRD
+preplace port gt_x1y4_diff_ref -pg 1 -lvl 0 -x 0 -y 1320 -defaultsOSRD
+preplace port gt_x1y8_diff_ref -pg 1 -lvl 0 -x 0 -y 1080 -defaultsOSRD
+preplace port port-id_i_pma_rst -pg 1 -lvl 0 -x 0 -y 1260 -defaultsOSRD
+preplace port port-id_init_clk -pg 1 -lvl 0 -x 0 -y 1230 -defaultsOSRD
+preplace port port-id_s_axis_aclk -pg 1 -lvl 0 -x 0 -y 900 -defaultsOSRD
+preplace inst hier_x1y8 -pg 1 -lvl 5 -x 1600 -y 770 -swap {10 1 2 3 4 5 6 7 8 9 32 11 12 13 14 15 16 17 18 0 20 21 22 23 29 25 26 27 28 24 30 31 19 33 34 37 38 35 39 36} -defaultsOSRD -pinY USER_DATA_S_AXIS_TX 140L -pinY USER_DATA_M_AXIS_RX 120R -pinY gt_x1y8_diff_ref 300L -pinY GT_SERIAL_TX_1 220R -pinY GT_SERIAL_RX_1 260L -pinY USER_DATA_S_AXIS_TX1 20L -pinY USER_DATA_M_AXIS_RX1 280R -pinY GT_SERIAL_TX_3 250R -pinY GT_SERIAL_RX_3 280L -pinY init_clk 340L -pinY clk 320R -pinY pma_init_0 320L -pinY arstn 340R -pinY arstn1 300R
+preplace inst ini_system_0 -pg 1 -lvl 4 -x 1200 -y 1220 -defaultsOSRD -pinY i_clk 20L -pinY i_pma_rst 40L -pinY ini_pma 20R
+preplace inst axis_data_fifo_0 -pg 1 -lvl 7 -x 2420 -y 690 -swap {0 1 2 3 4 5 6 7 8 9 10 11 13 14 12 15 16} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 40R -pinY s_axis_aresetn 60L -pinY s_axis_aclk 80L -pinY m_axis_aclk 40L -pinBusY axis_wr_data_count 60R -pinY almost_full 80R
+preplace inst axis_data_fifo_1 -pg 1 -lvl 7 -x 2420 -y 1350 -swap {0 1 2 3 4 5 6 7 8 9 10 11 14 13 12 15 16} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 20R -pinY s_axis_aresetn 80L -pinY s_axis_aclk 60L -pinY m_axis_aclk 40L -pinBusY axis_wr_data_count 40R -pinY almost_full 60R
+preplace inst hier_x1y4 -pg 1 -lvl 5 -x 1600 -y 1220 -swap {18 1 2 3 4 5 6 7 0 9 10 11 12 24 14 15 16 17 27 19 20 21 22 23 13 25 26 30 28 29 8 31 32 33 34 38 36 37 35 39} -defaultsOSRD -pinY gt_x1y8_diff_ref 100L -pinY USER_DATA_M_AXIS_RX 20R -pinY USER_DATA_S_AXIS_TX 20L -pinY USER_DATA_M_AXIS_RX1 150R -pinY GT_SERIAL_RX_3 140L -pinY GT_SERIAL_TX_3 70R -pinY GT_SERIAL_TX_1 40R -pinY GT_SERIAL_RX_1 170L -pinY USER_DATA_S_AXIS_TX1 40L -pinY arstn1 210R -pinY arstn 190R -pinY pma_init_0 190L -pinY clk 170R -pinY init_clk 210L
+preplace inst axis_data_fifo_2 -pg 1 -lvl 3 -x 740 -y 50 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 14 13 15 16} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 40R -pinY s_axis_aresetn 80L -pinY s_axis_aclk 180L -pinY m_axis_aclk 160L -pinBusY axis_wr_data_count 60R -pinY almost_full 80R
+preplace inst axis_data_fifo_3 -pg 1 -lvl 3 -x 740 -y 350 -swap {0 1 2 3 4 5 6 7 8 9 10 11 14 13 12 15 16} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 20R -pinY s_axis_aresetn 80L -pinY s_axis_aclk 60L -pinY m_axis_aclk 40L -pinBusY axis_wr_data_count 40R -pinY almost_full 60R
+preplace inst xpm_cdc_gen_0 -pg 1 -lvl 2 -x 380 -y 110 -swap {2 1 0} -defaultsOSRD -pinY dest_clk 40L -pinY dest_arst 20R -pinY src_arst 20L
+preplace inst xpm_cdc_gen_1 -pg 1 -lvl 2 -x 380 -y 270 -swap {2 1 0} -defaultsOSRD -pinY dest_clk 40L -pinY dest_arst 40R -pinY src_arst 20L
+preplace inst system_ila_0 -pg 1 -lvl 7 -x 2420 -y 170 -swap {11 1 2 3 4 0 6 7 8 9 10 5 12 13 14 15 16 24 17 18 19 20 21 22 23} -defaultsOSRD -pinY SLOT_0_AXIS 280L -pinY SLOT_1_AXIS 20L -pinY SLOT_2_AXIS 60L -pinY clk 440L -pinBusY probe0 300L -pinBusY probe1 320L -pinBusY probe2 340L -pinBusY probe3 360L -pinBusY probe4 380L -pinBusY probe5 400L -pinY resetn 420L
+preplace inst system_ila_1 -pg 1 -lvl 4 -x 1200 -y 270 -swap {0 1 2 3 4 5 6 7 8 9 10 11 16 12 13 14 15 17} -defaultsOSRD -pinY SLOT_0_AXIS 20L -pinY SLOT_1_AXIS 40L -pinY clk 140L -pinBusY probe0 60L -pinBusY probe1 80L -pinBusY probe2 100L -pinBusY probe3 120L -pinY resetn 160L
+preplace inst xpm_cdc_gen_2 -pg 1 -lvl 2 -x 380 -y 570 -defaultsOSRD -pinY dest_clk 20L -pinY dest_arst 40R -pinY src_arst 40L
+preplace inst xpm_cdc_gen_3 -pg 1 -lvl 2 -x 380 -y 910 -defaultsOSRD -pinY dest_clk 20L -pinY dest_arst 20R -pinY src_arst 40L
+preplace inst axis_data_fifo_4 -pg 1 -lvl 3 -x 740 -y 650 -swap {0 1 2 3 4 5 6 7 8 9 10 11 13 12 14 15 16} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 20R -pinY s_axis_aresetn 60L -pinY s_axis_aclk 40L -pinY m_axis_aclk 80L -pinBusY axis_wr_data_count 40R -pinY almost_full 60R
+preplace inst axis_data_fifo_5 -pg 1 -lvl 3 -x 740 -y 850 -swap {0 1 2 3 4 5 6 7 8 9 10 11 14 13 12 15 16} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 20R -pinY s_axis_aresetn 80L -pinY s_axis_aclk 60L -pinY m_axis_aclk 40L -pinBusY axis_wr_data_count 40R -pinY almost_full 60R
+preplace inst axis_data_fifo_7 -pg 1 -lvl 7 -x 2420 -y 850 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 15 16 14} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 40R -pinY s_axis_aresetn 60L -pinY s_axis_aclk 80L -pinY m_axis_aclk 40L
+preplace inst axis_data_fifo_8 -pg 1 -lvl 7 -x 2420 -y 1100 -swap {0 1 2 3 4 5 6 7 8 9 10 11 12 13 15 16 14} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 20R -pinY s_axis_aresetn 60L -pinY s_axis_aclk 80L -pinY m_axis_aclk 40L
+preplace inst axis_register_slice_0 -pg 1 -lvl 4 -x 1200 -y 730 -swap {0 1 2 3 4 5 6 7 8 9 10 11 13 12} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 60R -pinY aclk 60L -pinY aresetn 40L
+preplace inst axis_register_slice_1 -pg 1 -lvl 4 -x 1200 -y 890 -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 20R -pinY aclk 40L -pinY aresetn 60L
+preplace inst axis_register_slice_2 -pg 1 -lvl 4 -x 1200 -y 70 -swap {0 1 2 3 4 5 6 7 8 9 10 11 13 12} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 60R -pinY aclk 60L -pinY aresetn 40L
+preplace inst axis_register_slice_3 -pg 1 -lvl 4 -x 1200 -y 510 -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 60R -pinY aclk 40L -pinY aresetn 60L
+preplace inst axis_register_slice_4 -pg 1 -lvl 6 -x 2080 -y 690 -swap {0 1 2 3 4 5 6 7 8 9 11 10} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 20R -pinY aclk 60L -pinY aresetn 40L
+preplace inst axis_register_slice_5 -pg 1 -lvl 6 -x 2080 -y 1350 -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 20R -pinY aclk 40L -pinY aresetn 60L
+preplace inst axis_register_slice_6 -pg 1 -lvl 6 -x 2080 -y 870 -swap {0 1 2 3 4 5 6 7 8 9 11 10} -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 20R -pinY aclk 60L -pinY aresetn 40L
+preplace inst axis_register_slice_7 -pg 1 -lvl 6 -x 2080 -y 1100 -defaultsOSRD -pinY S_AXIS 20L -pinY M_AXIS 20R -pinY aclk 40L -pinY aresetn 60L
+preplace inst xpm_cdc_gen_4 -pg 1 -lvl 1 -x 140 -y 410 -defaultsOSRD -pinY dest_clk 20L -pinY dest_arst 20R -pinY src_arst 40L
+preplace inst xpm_cdc_gen_5 -pg 1 -lvl 1 -x 140 -y 250 -defaultsOSRD -pinY dest_clk 20L -pinY dest_arst 20R -pinY src_arst 60L
+preplace netloc clk_wiz_0_clk_out1 1 0 7 NJ 900 260 230 540 550 1000J 630 NJ 630 NJ 630 2200
+preplace netloc hier_x0y11_clk2 1 2 5 580 810 1060 1010 1360J 730 1940 1060 2260
+preplace netloc hier_x1y4_arstn 1 1 6 240 10 NJ 10 1060 210 NJ 210 1980 650 2260
+preplace netloc hier_x1y4_arstn1 1 1 6 280 490 580J 570 900 1180 NJ 1180 1840 1310 2180
+preplace netloc hier_x1y4_clk 1 0 7 40 210 NJ 210 580 310 1020 690 NJ 690 1860 810 2240
+preplace netloc hier_x1y8_arstn 1 1 6 280 790 NJ 790 960 850 1320J 710 1880 830 2220
+preplace netloc hier_x1y8_arstn1 1 1 6 280 1010 NJ 1010 920 1160 NJ 1160 1920 1040 2180
+preplace netloc i_pma_rst_0_1 1 0 4 NJ 1260 NJ 1260 NJ 1260 NJ
+preplace netloc rst_pma_probe_out0 1 4 1 1360 1090n
+preplace netloc s_axis_aresetn1_10 1 2 1 N 930
+preplace netloc s_axis_aresetn_10 1 2 1 480 610n
+preplace netloc util_ds_buf_0_IBUF_OUT 1 0 5 NJ 1230 NJ 1230 NJ 1230 1080 1340 1400
+preplace netloc xpm_cdc_gen_0_dest_arst 1 2 1 N 130
+preplace netloc xpm_cdc_gen_1_dest_arst 1 2 1 560 310n
+preplace netloc hier_x1y4_arstn2 1 0 6 40 510 NJ 510 520J 590 980J 650 NJ 650 1820
+preplace netloc hier_x1y4_arstn3 1 0 6 20 530 NJ 530 500J 610 960J 670 NJ 670 1800
+preplace netloc GT_SERIAL_RX_1_2_1 1 0 5 NJ 1020 240J 1030 NJ 1030 NJ 1030 NJ
+preplace netloc GT_SERIAL_RX_1_3_4 1 0 5 NJ 1390 NJ 1390 NJ 1390 NJ 1390 NJ
+preplace netloc GT_SERIAL_RX_3_2_1 1 0 5 NJ 1050 NJ 1050 NJ 1050 NJ 1050 NJ
+preplace netloc GT_SERIAL_RX_3_3_4 1 0 5 NJ 1360 NJ 1360 NJ 1360 NJ 1360 NJ
+preplace netloc S_AXIS_12_1 1 0 3 NJ 670 NJ 670 NJ
+preplace netloc S_AXIS_13_1 1 0 3 NJ 870 NJ 870 NJ
+preplace netloc S_AXIS_x1y4_1_1 1 0 3 NJ 370 NJ 370 NJ
+preplace netloc S_AXIS_x1y4_2 1 0 3 NJ 70 NJ 70 NJ
+preplace netloc axis_data_fifo_0_M_AXIS 1 7 1 NJ 730
+preplace netloc axis_data_fifo_1_M_AXIS 1 7 1 NJ 1370
+preplace netloc axis_data_fifo_2_M_AXIS 1 3 4 1080 190 NJ 190 NJ 190 N
+preplace netloc axis_data_fifo_3_M_AXIS 1 3 4 1080 230 NJ 230 NJ 230 NJ
+preplace netloc axis_register_slice_0_M_AXIS 1 4 1 N 790
+preplace netloc axis_register_slice_1_M_AXIS 1 4 1 N 910
+preplace netloc axis_register_slice_2_M_AXIS 1 4 1 1380 130n
+preplace netloc axis_register_slice_3_M_AXIS 1 4 1 1340 570n
+preplace netloc gt_x1y8_diff_ref 1 0 5 NJ 1080 NJ 1080 480J 1070 NJ 1070 NJ
+preplace netloc gt_x1y8_diff_ref_0_4 1 0 5 NJ 1320 NJ 1320 NJ 1320 NJ 1320 NJ
+preplace netloc hier_rx_x1y8_M_AXIS_2 1 7 1 NJ 890
+preplace netloc hier_rx_x1y8_M_AXIS_3 1 7 1 NJ 1120
+preplace netloc hier_tx_x1y12_M_AXIS4 1 3 1 1040 310n
+preplace netloc hier_tx_x1y12_M_AXIS5 1 3 1 940 290n
+preplace netloc hier_x1y4_USER_DATA_M_AXIS_RX 1 6 1 2180 450n
+preplace netloc hier_x1y7_GT_SERIAL_TX_7 1 5 3 NJ 1260 NJ 1260 NJ
+preplace netloc hier_x1y7_GT_SERIAL_TX_8 1 5 3 NJ 1290 NJ 1290 NJ
+preplace netloc hier_x1y8_GT_SERIAL_TX_1 1 5 3 NJ 990 NJ 990 NJ
+preplace netloc hier_x1y8_GT_SERIAL_TX_3 1 5 3 NJ 1020 NJ 1020 NJ
+preplace netloc hier_x1y4_USER_DATA_M_AXIS_RX2 1 5 1 1960 710n
+preplace netloc hier_x1y4_USER_DATA_M_AXIS_RX1 1 5 1 N 1370
+preplace netloc axis_register_slice_5_M_AXIS 1 6 1 N 1370
+preplace netloc hier_x1y8_USER_DATA_M_AXIS_RX 1 5 1 N 890
+preplace netloc axis_register_slice_6_M_AXIS 1 6 1 2180 870n
+preplace netloc hier_x1y8_USER_DATA_M_AXIS_RX1 1 5 1 1900 1050n
+preplace netloc axis_register_slice_7_M_AXIS 1 6 1 N 1120
+levelinfo -pg 1 0 140 380 740 1200 1600 2080 2420 2600
+pagesize -pg 1 -db -bbox -sgen -180 0 2770 1490
+",
+   "Reduced Jogs_ScaleFactor":"0.50017",
+   "Reduced Jogs_TopLeft":"-172,-70",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port S_AXIS -pg 1 -lvl 0 -x -10 -y 20 -defaultsOSRD
+preplace port M_AXIS -pg 1 -lvl 4 -x 800 -y 90 -defaultsOSRD
+preplace port port-id_m_axis_aclk -pg 1 -lvl 0 -x -10 -y 110 -defaultsOSRD
+preplace port port-id_m_axis_aresetn -pg 1 -lvl 0 -x -10 -y 180 -defaultsOSRD
+preplace port port-id_s_axis_aresetn -pg 1 -lvl 0 -x -10 -y 50 -defaultsOSRD
+preplace port port-id_s_axis_aclk -pg 1 -lvl 0 -x -10 -y 80 -defaultsOSRD
+preplace inst header_insertion_v2_0 -pg 1 -lvl 2 -x 400 -y 100 -defaultsOSRD
+preplace inst axis_data_fifo_0 -pg 1 -lvl 1 -x 140 -y 80 -defaultsOSRD
+preplace inst axis_data_fifo_1 -pg 1 -lvl 3 -x 660 -y 90 -defaultsOSRD
+preplace netloc hier_x0y11_clk 1 0 3 10 170 270 190 530J
+preplace netloc i_rstn_1 1 0 1 10J 50n
+preplace netloc m_axis_aresetn_1 1 0 3 NJ 180 260 0 530J
+preplace netloc s_axis_aclk_1 1 0 1 20J 80n
+preplace netloc axis_data_fifo_0_M_AXIS 1 1 3 270 10 N 10 780
+preplace netloc data_pg_0_m_axi_rx 1 0 1 20J 20n
+preplace netloc header_insertion_v2_0_m_axis 1 2 1 N 70
+levelinfo -pg 1 -10 140 400 660 800
+pagesize -pg 1 -db -bbox -sgen -170 -10 900 210
+"
+}
+0

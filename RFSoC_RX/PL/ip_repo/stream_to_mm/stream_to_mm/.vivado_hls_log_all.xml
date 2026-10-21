@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vivadoHLSLog:LogRoot xmlns:vivadoHLSLog="www.xilinx.com/vivadoHLSLog">
+  <errorLogs>
+    <logs>
+      <synLog/>
+      <simLog/>
+      <mgLog/>
+      <packageLog/>
+      <csimLog/>
+    </logs>
+  </errorLogs>
+  <warningLogs>
+    <logs>
+      <synLog>
+        <logs message="WARNING: [SYN 201-107] Renaming port name 'stream_to_mm/length' to 'stream_to_mm/length_r' to avoid the conflict with HDL keywords or other object names." projectName="stream_to_mm" solutionName="solution1" date="2021-03-06T22:01:45.750+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Cannot find library 'xilinx/zynquplusRFSOC/zynquplusRFSOC'." projectName="stream_to_mm" solutionName="solution1" date="2021-03-06T22:01:37.594+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Cannot find library 'C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynquplusRFSOC/zynquplusRFSOC.lib'." projectName="stream_to_mm" solutionName="solution1" date="2021-03-06T22:01:37.390+0800" type="Warning"/>
+      </synLog>
+      <simLog/>
+      <mgLog/>
+      <packageLog>
+        <logs message="WARNING: [HLS 200-40] Cannot find library 'xilinx/zynquplusRFSOC/zynquplusRFSOC'." projectName="stream_to_mm" solutionName="solution1" date="2021-03-06T22:01:56.912+0800" type="Warning"/>
+        <logs message="WARNING: [HLS 200-40] Cannot find library 'C:/Xilinx/Vivado/2018.3/common/technology/xilinx/zynquplusRFSOC/zynquplusRFSOC.lib'." projectName="stream_to_mm" solutionName="solution1" date="2021-03-06T22:01:56.688+0800" type="Warning"/>
+      </packageLog>
+      <csimLog/>
+    </logs>
+  </warningLogs>
+</vivadoHLSLog:LogRoot>

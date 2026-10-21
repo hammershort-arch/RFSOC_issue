@@ -1,0 +1,53 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-641,-88",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port S00_axis_I -pg 1 -lvl 0 -x -10 -y 280 -defaultsOSRD
+preplace port S00_axis_Q -pg 1 -lvl 0 -x -10 -y 80 -defaultsOSRD
+preplace port S_AXI_I -pg 1 -lvl 0 -x -10 -y 620 -defaultsOSRD
+preplace port S_AXI_Q -pg 1 -lvl 0 -x -10 -y 480 -defaultsOSRD
+preplace port port-id_clk_adc -pg 1 -lvl 0 -x -10 -y 60 -defaultsOSRD
+preplace port port-id_storage_ena -pg 1 -lvl 0 -x -10 -y 160 -defaultsOSRD
+preplace port port-id_bram_rd_clk -pg 1 -lvl 0 -x -10 -y 500 -defaultsOSRD
+preplace port port-id_s_axi_aresetn -pg 1 -lvl 0 -x -10 -y 520 -defaultsOSRD
+preplace portBus Capture_len -pg 1 -lvl 0 -x -10 -y 140 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 1 -x 220 -y 500 -defaultsOSRD
+preplace inst axi_bram_ctrl_1 -pg 1 -lvl 1 -x 220 -y 640 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 2 -x 620 -y 170 -defaultsOSRD
+preplace inst blk_mem_gen_1 -pg 1 -lvl 2 -x 620 -y 410 -defaultsOSRD
+preplace inst ADC2BRAM_0 -pg 1 -lvl 1 -x 220 -y 110 -defaultsOSRD
+preplace inst ADC2BRAM_1 -pg 1 -lvl 1 -x 220 -y 310 -defaultsOSRD
+preplace inst system_ila_0 -pg 1 -lvl 2 -x 620 -y 590 -defaultsOSRD
+preplace inst system_ila_1 -pg 1 -lvl 2 -x 620 -y 710 -defaultsOSRD -resize 160 96
+preplace netloc ADC2BRAM_0_bram_addr_a 1 1 1 410 120n
+preplace netloc ADC2BRAM_0_bram_clk_a 1 1 1 470 80n
+preplace netloc ADC2BRAM_0_bram_en_a 1 1 1 420 100n
+preplace netloc ADC2BRAM_0_bram_rst_a 1 1 1 450 60n
+preplace netloc ADC2BRAM_0_bram_we_a 1 1 1 400 120n
+preplace netloc ADC2BRAM_0_bram_wrdata_a 1 1 1 N 160
+preplace netloc ADC2BRAM_1_bram_addr_a 1 1 1 430 340n
+preplace netloc ADC2BRAM_1_bram_clk_a 1 1 1 460 280n
+preplace netloc ADC2BRAM_1_bram_en_a 1 1 1 420 300n
+preplace netloc ADC2BRAM_1_bram_rst_a 1 1 1 440 260n
+preplace netloc ADC2BRAM_1_bram_we_a 1 1 1 400 320n
+preplace netloc ADC2BRAM_1_bram_wrdata_a 1 1 1 410 360n
+preplace netloc Capture_len_0_1 1 0 1 30 140n
+preplace netloc clk_0_1 1 0 2 20 720 400J
+preplace netloc s_axi_aclk_0_1 1 0 2 30 730 470J
+preplace netloc s_axi_aresetn_0_1 1 0 1 40 520n
+preplace netloc storage_ena_0_1 1 0 1 40 120n
+preplace netloc Conn 1 1 1 500 340n
+preplace netloc Conn1 1 0 1 NJ 280
+preplace netloc Conn2 1 0 1 NJ 80
+preplace netloc Conn3 1 0 1 NJ 620
+preplace netloc Conn4 1 0 1 NJ 480
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 1 1 450 240n
+preplace netloc axi_bram_ctrl_1_BRAM_PORTA 1 1 1 490 480n
+levelinfo -pg 1 -10 220 620 760
+pagesize -pg 1 -db -bbox -sgen -190 0 760 780
+"
+}
+0

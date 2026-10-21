@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<autopilotfilemapping:AutoPilotFileMapping xmlns:autopilotfilemapping="www.autoesl.com/autopilotfilemapping">
+  <source>
+    <originFiles name="diff_sq_acc.cpp" path="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\simple_test\ps_aurora_hls\ps_test_c2c_qsfp2_ps_slave\ip\mm_to_stream\src\diff_sq_acc.cpp"/>
+  </source>
+  <testbench>
+    <originFiles name="diff_sq_acc_tb.cpp" path="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\simple_test\ps_aurora_hls\ps_test_c2c_qsfp2_ps_slave\ip\mm_to_stream\tb\diff_sq_acc_tb.cpp"/>
+  </testbench>
+</autopilotfilemapping:AutoPilotFileMapping>

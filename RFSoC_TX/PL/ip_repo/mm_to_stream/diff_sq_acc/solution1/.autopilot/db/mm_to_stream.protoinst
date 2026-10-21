@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"mm_to_stream": {
+			"proto_instances": {
+			}
+		}
+	}
+}

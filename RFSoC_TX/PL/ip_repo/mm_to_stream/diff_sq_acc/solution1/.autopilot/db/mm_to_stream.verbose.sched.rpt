@@ -1,0 +1,239 @@
+
+
+================================================================
+== Vivado HLS Report for 'mm_to_stream'
+================================================================
+* Date:           Fri Mar  5 15:00:19 2021
+
+* Version:        2018.3 (Build 2405991 on Thu Dec 06 23:56:15 MST 2018)
+* Project:        diff_sq_acc
+* Solution:       solution1
+* Product family: zynquplus
+* Target device:  xczu28dr-ffvg1517-1-e
+
+
+================================================================
+== Performance Estimates
+================================================================
++ Timing (ns): 
+    * Summary: 
+    +--------+-------+----------+------------+
+    |  Clock | Target| Estimated| Uncertainty|
+    +--------+-------+----------+------------+
+    |ap_clk  |  10.00|     8.750|        1.25|
+    +--------+-------+----------+------------+
+
++ Latency (clock cycles): 
+    * Summary: 
+    +-----+-----------+-----+-----------+---------+
+    |     Latency     |     Interval    | Pipeline|
+    | min |    max    | min |    max    |   Type  |
+    +-----+-----------+-----+-----------+---------+
+    |    8|  134217736|    8|  134217736|   none  |
+    +-----+-----------+-----+-----------+---------+
+
+    + Detail: 
+        * Instance: 
+        N/A
+
+        * Loop: 
+        +---------------------------------+-----+-----------+----------+-----------+-----------+---------------+----------+
+        |                                 |     Latency     | Iteration|  Initiation Interval  |      Trip     |          |
+        |            Loop Name            | min |    max    |  Latency |  achieved |   target  |     Count     | Pipelined|
+        +---------------------------------+-----+-----------+----------+-----------+-----------+---------------+----------+
+        |- memcpy.stream_out.V.DRAM_IN.V  |    0|  134217728|         3|          1|          1| 0 ~ 134217727 |    yes   |
+        +---------------------------------+-----+-----------+----------+-----------+-----------+---------------+----------+
+
+============================================================
++ Verbose Summary: Synthesis Manager
+============================================================
+InlineROM: 1
+ExposeGlobal: 0
+============================================================
++ Verbose Summary: CDFG Model
+============================================================
+IsTopModel: 1
+ResetActiveHigh: 1
+IsCombinational: 0
+IsDatapathOnly: 0
+HasWiredReturn: 1
+HasMFsm: 0
+HasVarLatency: 1
+IsPipeline: 0
+IsRtlPipelined: 0
+IsInstanceOverlapped: 0
+IsDontTouch: 0
+HasImplIP: 0
+IsGatedGlobalClock: 0
+
++ Individual pipeline summary: 
+  * Pipeline-0: initiation interval (II) = 1, depth = 3
+
+
+============================================================
++ Verbose Summary: Schedule
+============================================================
+* Number of FSM states : 11
+* Pipeline : 1
+  Pipeline-0 : II = 1, D = 3, States = { 8 9 10 }
+* Dataflow Pipeline: 0
+
+* FSM state transitions: 
+1 --> 
+	2  / true
+2 --> 
+	3  / true
+3 --> 
+	4  / true
+4 --> 
+	5  / true
+5 --> 
+	6  / true
+6 --> 
+	7  / true
+7 --> 
+	8  / true
+8 --> 
+	11  / (exitcond)
+	9  / (!exitcond)
+9 --> 
+	10  / true
+10 --> 
+	8  / true
+11 --> 
+
+* FSM state operations: 
+
+State 1 <SV = 0> <Delay = 8.75>
+ST_1 : Operation 12 [1/1] (0.00ns)   --->   "%length_read = call i32 @_ssdm_op_Read.ap_auto.i32(i32 %length_r)"   --->   Operation 12 'read' 'length_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 13 [1/1] (0.00ns)   --->   "%DRAM_IN_V_read = call i64 @_ssdm_op_Read.ap_auto.i64(i64 %DRAM_IN_V)"   --->   Operation 13 'read' 'DRAM_IN_V_read' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 14 [1/1] (0.00ns)   --->   "%DRAM_IN_V1 = call i59 @_ssdm_op_PartSelect.i59.i64.i32.i32(i64 %DRAM_IN_V_read, i32 5, i32 63)"   --->   Operation 14 'partselect' 'DRAM_IN_V1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 15 [1/1] (0.00ns)   --->   "%tmp = zext i59 %DRAM_IN_V1 to i64"   --->   Operation 15 'zext' 'tmp' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 16 [1/1] (0.00ns)   --->   "%gmem_addr = getelementptr i256* %gmem, i64 %tmp"   --->   Operation 16 'getelementptr' 'gmem_addr' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 17 [1/1] (0.00ns)   --->   "%tmp_1 = trunc i32 %length_read to i27" [src/diff_sq_acc.cpp:49]   --->   Operation 17 'trunc' 'tmp_1' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 18 [1/1] (0.00ns)   --->   "%tmp_1_add_i32_shr_ca = zext i27 %tmp_1 to i32" [src/diff_sq_acc.cpp:49]   --->   Operation 18 'zext' 'tmp_1_add_i32_shr_ca' <Predicate = true> <Delay = 0.00>
+ST_1 : Operation 19 [7/7] (8.75ns)   --->   "%gmem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i256P(i256* %gmem_addr, i32 %tmp_1_add_i32_shr_ca)" [src/diff_sq_acc.cpp:49]   --->   Operation 19 'readreq' 'gmem_addr_rd_req' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 2 <SV = 1> <Delay = 8.75>
+ST_2 : Operation 20 [6/7] (8.75ns)   --->   "%gmem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i256P(i256* %gmem_addr, i32 %tmp_1_add_i32_shr_ca)" [src/diff_sq_acc.cpp:49]   --->   Operation 20 'readreq' 'gmem_addr_rd_req' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 3 <SV = 2> <Delay = 8.75>
+ST_3 : Operation 21 [5/7] (8.75ns)   --->   "%gmem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i256P(i256* %gmem_addr, i32 %tmp_1_add_i32_shr_ca)" [src/diff_sq_acc.cpp:49]   --->   Operation 21 'readreq' 'gmem_addr_rd_req' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 4 <SV = 3> <Delay = 8.75>
+ST_4 : Operation 22 [4/7] (8.75ns)   --->   "%gmem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i256P(i256* %gmem_addr, i32 %tmp_1_add_i32_shr_ca)" [src/diff_sq_acc.cpp:49]   --->   Operation 22 'readreq' 'gmem_addr_rd_req' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 5 <SV = 4> <Delay = 8.75>
+ST_5 : Operation 23 [3/7] (8.75ns)   --->   "%gmem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i256P(i256* %gmem_addr, i32 %tmp_1_add_i32_shr_ca)" [src/diff_sq_acc.cpp:49]   --->   Operation 23 'readreq' 'gmem_addr_rd_req' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 6 <SV = 5> <Delay = 8.75>
+ST_6 : Operation 24 [2/7] (8.75ns)   --->   "%gmem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i256P(i256* %gmem_addr, i32 %tmp_1_add_i32_shr_ca)" [src/diff_sq_acc.cpp:49]   --->   Operation 24 'readreq' 'gmem_addr_rd_req' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+
+State 7 <SV = 6> <Delay = 8.75>
+ST_7 : Operation 25 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i256* %gmem), !map !15"   --->   Operation 25 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 26 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i32 %length_r), !map !21"   --->   Operation 26 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 27 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecBitsMap(i256* %stream_out_V), !map !27"   --->   Operation 27 'specbitsmap' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 28 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecTopModule([13 x i8]* @mm_to_stream_str) nounwind"   --->   Operation 28 'spectopmodule' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 29 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i256* %stream_out_V, [5 x i8]* @p_str, i32 1, i32 1, [5 x i8]* @p_str1, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2, [1 x i8]* @p_str2, i32 0, i32 0, i32 0, i32 0, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [src/diff_sq_acc.cpp:41]   --->   Operation 29 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 30 [1/1] (0.00ns)   --->   "call void (...)* @_ssdm_op_SpecInterface(i256* %gmem, [6 x i8]* @p_str3, i32 0, i32 0, [1 x i8]* @p_str2, i32 0, i32 64, [1 x i8]* @p_str2, [7 x i8]* @p_str4, [1 x i8]* @p_str2, i32 32, i32 0, i32 64, i32 64, [1 x i8]* @p_str2, [1 x i8]* @p_str2) nounwind" [src/diff_sq_acc.cpp:42]   --->   Operation 30 'specinterface' <Predicate = true> <Delay = 0.00>
+ST_7 : Operation 31 [1/7] (8.75ns)   --->   "%gmem_addr_rd_req = call i1 @_ssdm_op_ReadReq.m_axi.i256P(i256* %gmem_addr, i32 %tmp_1_add_i32_shr_ca)" [src/diff_sq_acc.cpp:49]   --->   Operation 31 'readreq' 'gmem_addr_rd_req' <Predicate = true> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_7 : Operation 32 [1/1] (0.75ns)   --->   "br label %burst.rd.header" [src/diff_sq_acc.cpp:49]   --->   Operation 32 'br' <Predicate = true> <Delay = 0.75>
+
+State 8 <SV = 7> <Delay = 1.14>
+ST_8 : Operation 33 [1/1] (0.00ns)   --->   "%indvar = phi i27 [ 0, %0 ], [ %indvar_next, %burst.rd.body ]" [src/diff_sq_acc.cpp:49]   --->   Operation 33 'phi' 'indvar' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 34 [1/1] (1.03ns)   --->   "%exitcond = icmp eq i27 %indvar, %tmp_1" [src/diff_sq_acc.cpp:49]   --->   Operation 34 'icmp' 'exitcond' <Predicate = true> <Delay = 1.03> <Core = "Cmp">   --->   Core 25 'Cmp' <Latency = 0> <II = 1> <Delay = 1.03> <FuncUnit> <Opcode : 'icmp'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 35 [1/1] (0.00ns)   --->   "%empty = call i32 (...)* @_ssdm_op_SpecLoopTripCount(i64 0, i64 134217727, i64 0)"   --->   Operation 35 'speclooptripcount' 'empty' <Predicate = true> <Delay = 0.00>
+ST_8 : Operation 36 [1/1] (1.14ns)   --->   "%indvar_next = add i27 %indvar, 1" [src/diff_sq_acc.cpp:49]   --->   Operation 36 'add' 'indvar_next' <Predicate = true> <Delay = 1.14> <Core = "AddSub">   --->   Core 14 'AddSub' <Latency = 0> <II = 1> <Delay = 1.14> <FuncUnit> <Opcode : 'add' 'sub'> <InPorts = 2> <OutPorts = 1>
+ST_8 : Operation 37 [1/1] (0.00ns)   --->   "br i1 %exitcond, label %burst.rd.end, label %burst.rd.body" [src/diff_sq_acc.cpp:49]   --->   Operation 37 'br' <Predicate = true> <Delay = 0.00>
+
+State 9 <SV = 8> <Delay = 8.75>
+ST_9 : Operation 38 [1/1] (8.75ns)   --->   "%gmem_addr_read = call i256 @_ssdm_op_Read.m_axi.i256P(i256* %gmem_addr)" [src/diff_sq_acc.cpp:49]   --->   Operation 38 'read' 'gmem_addr_read' <Predicate = (!exitcond)> <Delay = 8.75> <Core = "m_axi">   --->   Core 9 'm_axi' <Latency = 6> <II = 1> <Delay = 1.00> <Adapter> <Opcode : 'read' 'write' 'readreq' 'writereq' 'writeresp'>
+ST_9 : Operation 39 [2/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.i256P(i256* %stream_out_V, i256 %gmem_addr_read)" [src/diff_sq_acc.cpp:49]   --->   Operation 39 'write' <Predicate = (!exitcond)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+
+State 10 <SV = 9> <Delay = 0.00>
+ST_10 : Operation 40 [1/1] (0.00ns)   --->   "%burstread_rbegin = call i32 (...)* @_ssdm_op_SpecRegionBegin([17 x i8]* @burstread_OC_region_s)" [src/diff_sq_acc.cpp:49]   --->   Operation 40 'specregionbegin' 'burstread_rbegin' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_10 : Operation 41 [1/1] (0.00ns)   --->   "%empty_4 = call i32 (...)* @_ssdm_op_SpecPipeline(i32 1, i32 1, i32 1, i32 0, [1 x i8]* @p_str9)" [src/diff_sq_acc.cpp:49]   --->   Operation 41 'specpipeline' 'empty_4' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_10 : Operation 42 [1/1] (0.00ns)   --->   "%empty_5 = call i32 (...)* @_ssdm_op_SpecLoopName([30 x i8]* @memcpy_OC_stream_out)" [src/diff_sq_acc.cpp:49]   --->   Operation 42 'specloopname' 'empty_5' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_10 : Operation 43 [1/2] (0.00ns)   --->   "call void @_ssdm_op_Write.axis.i256P(i256* %stream_out_V, i256 %gmem_addr_read)" [src/diff_sq_acc.cpp:49]   --->   Operation 43 'write' <Predicate = (!exitcond)> <Delay = 0.00> <Core = "AXI4Stream">   --->   Core 5 'AXI4Stream' <Latency = 0> <II = 1> <Delay = 1.00> <Adapter> <Opcode : >
+ST_10 : Operation 44 [1/1] (0.00ns)   --->   "%burstread_rend = call i32 (...)* @_ssdm_op_SpecRegionEnd([17 x i8]* @burstread_OC_region_s, i32 %burstread_rbegin)" [src/diff_sq_acc.cpp:49]   --->   Operation 44 'specregionend' 'burstread_rend' <Predicate = (!exitcond)> <Delay = 0.00>
+ST_10 : Operation 45 [1/1] (0.00ns)   --->   "br label %burst.rd.header" [src/diff_sq_acc.cpp:49]   --->   Operation 45 'br' <Predicate = (!exitcond)> <Delay = 0.00>
+
+State 11 <SV = 8> <Delay = 0.00>
+ST_11 : Operation 46 [1/1] (0.00ns)   --->   "ret void" [src/diff_sq_acc.cpp:53]   --->   Operation 46 'ret' <Predicate = true> <Delay = 0.00>
+
+
+============================================================
++ Verbose Summary: Timing violations
+============================================================
+Target clock period: 10ns, clock uncertainty: 1.25ns.
+
+ <State 1>: 8.75ns
+The critical path consists of the following:
+	wire read on port 'length_r' [5]  (0 ns)
+	bus request on port 'gmem' (src/diff_sq_acc.cpp:49) [18]  (8.75 ns)
+
+ <State 2>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'gmem' (src/diff_sq_acc.cpp:49) [18]  (8.75 ns)
+
+ <State 3>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'gmem' (src/diff_sq_acc.cpp:49) [18]  (8.75 ns)
+
+ <State 4>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'gmem' (src/diff_sq_acc.cpp:49) [18]  (8.75 ns)
+
+ <State 5>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'gmem' (src/diff_sq_acc.cpp:49) [18]  (8.75 ns)
+
+ <State 6>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'gmem' (src/diff_sq_acc.cpp:49) [18]  (8.75 ns)
+
+ <State 7>: 8.75ns
+The critical path consists of the following:
+	bus request on port 'gmem' (src/diff_sq_acc.cpp:49) [18]  (8.75 ns)
+
+ <State 8>: 1.14ns
+The critical path consists of the following:
+	'phi' operation ('indvar', src/diff_sq_acc.cpp:49) with incoming values : ('indvar_next', src/diff_sq_acc.cpp:49) [21]  (0 ns)
+	'add' operation ('indvar_next', src/diff_sq_acc.cpp:49) [24]  (1.14 ns)
+
+ <State 9>: 8.75ns
+The critical path consists of the following:
+	bus read on port 'gmem' (src/diff_sq_acc.cpp:49) [30]  (8.75 ns)
+
+ <State 10>: 0ns
+The critical path consists of the following:
+
+ <State 11>: 0ns
+The critical path consists of the following:
+
+
+============================================================
++ Verbose Summary: Binding
+============================================================
+N/A
+* FSMD analyzer results:
+  - Output states:
+ - Input state : 
+  - Chain level:
+	State 1
+	State 2
+	State 3
+	State 4
+	State 5
+	State 6
+	State 7
+	State 8
+	State 9
+	State 10
+	State 11
+
+
+============================================================
++ Verbose Summary: Datapath Resource usage 
+============================================================
+N/A

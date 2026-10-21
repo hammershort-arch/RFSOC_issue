@@ -1,0 +1,23 @@
+digraph rx_top {
+  graph [rankdir=LR, fontname="Noto Sans CJK TC", fontsize=12, nodesep=0.25, ranksep=0.5, bgcolor="white", label="RFSoC_RX (z1) design_1 頂層架構", labelloc=t];
+  node  [shape=box, style="rounded,filled", fontname="Noto Sans CJK TC", fontsize=10, fillcolor="#EEF2F8", color="#14213D"];
+  edge  [fontname="Noto Sans CJK TC", fontsize=9, color="#3A4555"];
+  adc00 [label="RFDC ADC 00\n(m00 I / m01 Q)\nNCO 1.04 GHz", fillcolor="#DDEBF7"];
+  c00 [label="axi_stream_combininp_adc00\n(160-bit)"];
+  pk [label="axis_packetizer_0\n(timestamp / 封包)"];
+  aur [label="aurora_gty_47drto13p_0\nhier_tx_x0y1 / tx_c1\n(header_insertion)"];
+  vu13p [label="VU13P X1Y8 core1\n→ 廣播 8 路 → z2", fillcolor="#FFF2CC"];
+  adcx [label="RFDC ADC 02 ~ 32\n(7 個)", fillcolor="#DDEBF7"];
+  cx [label="axi_stream_combininp_adcXY\n(×7)"];
+  dacx [label="RFDC DAC s02 ~ s32\nNCO −1.04 GHz", fillcolor="#DDEBF7"];
+  tim [label="timer_1 / hier_mts\nSYSREF / 時間基準"];
+  ps [label="PS (Zynq US+)\nsmartconnect_0", fillcolor="#FCE4D6"];
+  adc00 -> c00 [label="m00 / m01"];
+  c00 -> pk [label="160-bit"];
+  pk -> aur [label="S_AXIS_X0Y1_C1"];
+  aur -> vu13p [label="GT TX X0Y6-7"];
+  tim -> pk [label="timestamp", style=dashed];
+  adcx -> cx [label="I / Q"];
+  cx -> dacx [label="本板 loopback"];
+  ps -> aur [label="arstn / pma_rst (axi_gpio)", style=dashed];
+}

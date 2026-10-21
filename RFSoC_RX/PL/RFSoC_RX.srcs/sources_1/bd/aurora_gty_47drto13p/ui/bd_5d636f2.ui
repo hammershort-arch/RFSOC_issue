@@ -1,0 +1,64 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.506198",
+   "Default View_TopLeft":"-441,2",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port USER_DATA_S_AXIS_TX1 -pg 1 -lvl 0 -x 0 -y 260 -defaultsOSRD
+preplace port USER_DATA_M_AXIS_RX -pg 1 -lvl 5 -x 1500 -y 200 -defaultsOSRD
+preplace port USER_DATA_S_AXIS_TX -pg 1 -lvl 0 -x 0 -y 640 -defaultsOSRD
+preplace port USER_DATA_M_AXIS_RX1 -pg 1 -lvl 5 -x 1500 -y 20 -defaultsOSRD
+preplace port GT_DIFF_REFCLK1_0 -pg 1 -lvl 0 -x 0 -y 660 -defaultsOSRD
+preplace port GT_SERIAL_RX_0 -pg 1 -lvl 0 -x 0 -y 700 -defaultsOSRD
+preplace port GT_SERIAL_RX_1 -pg 1 -lvl 0 -x 0 -y 320 -defaultsOSRD
+preplace port GT_SERIAL_TX_0 -pg 1 -lvl 5 -x 1500 -y 410 -defaultsOSRD
+preplace port GT_SERIAL_TX_2 -pg 1 -lvl 5 -x 1500 -y 630 -defaultsOSRD
+preplace port port-id_user_clk_out -pg 1 -lvl 5 -x 1500 -y 810 -defaultsOSRD
+preplace port port-id_init_clk -pg 1 -lvl 0 -x 0 -y 760 -defaultsOSRD
+preplace port port-id_pma_init_0 -pg 1 -lvl 0 -x 0 -y 740 -defaultsOSRD
+preplace port port-id_arstn -pg 1 -lvl 5 -x 1500 -y 880 -defaultsOSRD
+preplace port port-id_arstn1 -pg 1 -lvl 5 -x 1500 -y 480 -defaultsOSRD
+preplace inst x0y2_core_status_0 -pg 1 -lvl 4 -x 1370 -y 720 -defaultsOSRD
+preplace inst x0y2_core_status_1 -pg 1 -lvl 4 -x 1370 -y 110 -defaultsOSRD
+preplace inst auto_reset_aurora_0 -pg 1 -lvl 1 -x 140 -y 830 -defaultsOSRD
+preplace inst aurora_x0y2_0 -pg 1 -lvl 2 -x 480 -y 700 -defaultsOSRD
+preplace inst aurora_x0y2_1 -pg 1 -lvl 3 -x 1020 -y 400 -defaultsOSRD
+preplace inst aurora_rstn_0 -pg 1 -lvl 4 -x 1370 -y 880 -defaultsOSRD
+preplace inst aurora_rstn_1 -pg 1 -lvl 4 -x 1370 -y 480 -defaultsOSRD
+preplace netloc aurora_64b66b_0_gt_pll_lock 1 0 4 20 960 NJ 960 730 610 1260
+preplace netloc aurora_rstn_0_arstn 1 4 1 NJ 880
+preplace netloc aurora_rstn_1_arstn 1 4 1 NJ 480
+preplace netloc aurora_x0y13_1_gt_pll_lock 1 3 1 1220 120n
+preplace netloc aurora_x0y2_0_gt_reset_out 1 2 1 780 480n
+preplace netloc aurora_x0y2_0_sys_reset_out 1 2 2 830 890 N
+preplace netloc aurora_x0y2_1_sys_reset_out 1 3 1 1250 470n
+preplace netloc aurora_x0y4_0_channel_up 1 2 2 770J 600 1250
+preplace netloc aurora_x0y4_0_gt_qpllclk_quad1_out 1 2 1 790 520n
+preplace netloc aurora_x0y4_0_gt_qplllock_quad1_out 1 2 1 710 360n
+preplace netloc aurora_x0y4_0_gt_qpllrefclk_quad1_out 1 2 1 810 540n
+preplace netloc aurora_x0y4_0_gt_qpllrefclklost_quad1_out 1 2 1 720 380n
+preplace netloc aurora_x0y4_0_gt_refclk1_out 1 2 1 760 400n
+preplace netloc aurora_x0y4_0_lane_up 1 2 2 740J 620 1240
+preplace netloc aurora_x0y4_0_mmcm_not_locked_out 1 2 1 700 300n
+preplace netloc aurora_x0y4_0_sync_clk_out 1 2 1 750 440n
+preplace netloc aurora_x0y4_0_user_clk_out 1 2 3 800 750 1230 810 NJ
+preplace netloc aurora_x0y4_1_channel_up 1 3 1 1260 100n
+preplace netloc aurora_x0y4_1_lane_up 1 3 1 1250 140n
+preplace netloc auto_reset_aurora_0_reset_pb 1 1 1 270 720n
+preplace netloc pma_init_0_1 1 0 2 NJ 740 NJ
+preplace netloc util_ds_buf_0_IBUF_OUT 1 0 3 20 760 260 950 820
+preplace netloc Conn1 1 0 2 NJ 660 NJ
+preplace netloc Conn2 1 0 2 NJ 700 NJ
+preplace netloc Conn3 1 0 3 NJ 320 NJ 320 NJ
+preplace netloc Conn4 1 3 2 NJ 410 NJ
+preplace netloc Conn5 1 2 3 NJ 630 NJ 630 NJ
+preplace netloc USER_DATA_S_AXIS_TX1_1 1 0 3 NJ 260 NJ 260 NJ
+preplace netloc USER_DATA_S_AXIS_TX_1 1 0 2 NJ 640 NJ
+preplace netloc aurora_x0y4_0_USER_DATA_M_AXIS_RX 1 2 3 690J 200 NJ 200 NJ
+preplace netloc aurora_x0y4_1_USER_DATA_M_AXIS_RX 1 3 2 1210J 20 NJ
+levelinfo -pg 1 0 140 480 1020 1370 1500
+pagesize -pg 1 -db -bbox -sgen -200 0 1700 970
+"
+}
+

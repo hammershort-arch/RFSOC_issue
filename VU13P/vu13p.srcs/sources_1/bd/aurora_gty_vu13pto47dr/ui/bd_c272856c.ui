@@ -1,0 +1,36 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-349,-48",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port M_AXIS -pg 1 -lvl 3 -x 590 -y 110 -defaultsOSRD
+preplace port M_AXIS1 -pg 1 -lvl 3 -x 590 -y 310 -defaultsOSRD
+preplace port port-id_m_axis_aclk -pg 1 -lvl 0 -x 0 -y 150 -defaultsOSRD
+preplace port port-id_start -pg 1 -lvl 0 -x 0 -y 290 -defaultsOSRD
+preplace port port-id_s_axis_aclk -pg 1 -lvl 0 -x 0 -y 190 -defaultsOSRD
+preplace port port-id_s_axis_aresetn -pg 1 -lvl 0 -x 0 -y 70 -defaultsOSRD
+preplace port port-id_s_axis_aresetn1 -pg 1 -lvl 0 -x 0 -y 270 -defaultsOSRD
+preplace port port-id_m_axis_aresetn -pg 1 -lvl 0 -x 0 -y 170 -defaultsOSRD
+preplace port port-id_m_axis_aresetn1 -pg 1 -lvl 0 -x 0 -y 350 -defaultsOSRD
+preplace inst data_pg_0 -pg 1 -lvl 1 -x 170 -y 70 -defaultsOSRD
+preplace inst data_pg_1 -pg 1 -lvl 1 -x 170 -y 270 -defaultsOSRD
+preplace inst hier_aurora_rst_tx -pg 1 -lvl 2 -x 450 -y 110 -defaultsOSRD
+preplace inst hier_aurora_rst_tx1 -pg 1 -lvl 2 -x 450 -y 310 -defaultsOSRD
+preplace netloc hier_x0y11_clk 1 0 2 NJ 150 310
+preplace netloc i_rstn_1 1 0 2 40 180 300J
+preplace netloc m_axis_aresetn_1 1 0 2 NJ 170 290J
+preplace netloc m_axis_aresetn_2 1 0 2 NJ 350 290J
+preplace netloc s_axis_aclk_1 1 0 2 50 190 320
+preplace netloc s_axis_aresetn_1 1 0 2 20 360 330J
+preplace netloc start_data_pg_probe_out0 1 0 1 30 90n
+preplace netloc S_AXIS_1 1 1 1 N 270
+preplace netloc data_pg_0_m_axi_rx 1 1 1 N 70
+preplace netloc hier_aurora_rst_tx1_M_AXIS 1 2 1 NJ 310
+preplace netloc hier_aurora_rst_tx_M_AXIS 1 2 1 NJ 110
+levelinfo -pg 1 0 170 450 590
+pagesize -pg 1 -db -bbox -sgen -160 0 690 400
+"
+}
+

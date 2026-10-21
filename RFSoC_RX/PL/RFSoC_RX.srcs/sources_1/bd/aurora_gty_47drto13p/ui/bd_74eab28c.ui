@@ -1,0 +1,36 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.79187",
+   "Default View_TopLeft":"-499,4",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port M_AXIS -pg 1 -lvl 3 -x 590 -y 240 -defaultsOSRD
+preplace port M_AXIS1 -pg 1 -lvl 3 -x 590 -y 430 -defaultsOSRD
+preplace port S_AXIS_0 -pg 1 -lvl 0 -x -10 -y 390 -defaultsOSRD
+preplace port S_AXIS_1 -pg 1 -lvl 0 -x -10 -y 200 -defaultsOSRD
+preplace port port-id_m_axis_aclk -pg 1 -lvl 0 -x -10 -y 280 -defaultsOSRD
+preplace port port-id_s_axis_axlk -pg 1 -lvl 0 -x -10 -y 310 -defaultsOSRD
+preplace port port-id_dest_arst -pg 1 -lvl 3 -x 590 -y 70 -defaultsOSRD
+preplace port port-id_dest_arst1 -pg 1 -lvl 3 -x 590 -y 520 -defaultsOSRD
+preplace port port-id_m_axis_areset1 -pg 1 -lvl 0 -x -10 -y 430 -defaultsOSRD
+preplace port port-id_m_axis_aresetn -pg 1 -lvl 0 -x -10 -y 80 -defaultsOSRD
+preplace inst xpm_cdc_gen_2 -pg 1 -lvl 1 -x 170 -y 70 -defaultsOSRD
+preplace inst xpm_cdc_gen_3 -pg 1 -lvl 1 -x 170 -y 550 -defaultsOSRD
+preplace inst hier_aurora_rst_tx -pg 1 -lvl 2 -x 450 -y 240 -defaultsOSRD
+preplace inst hier_aurora_rst_tx1 -pg 1 -lvl 2 -x 450 -y 430 -defaultsOSRD
+preplace netloc aurora_64b66b_0_user_clk_out 1 0 2 10J 290 310
+preplace netloc clk_wiz_0_clk_out1 1 0 2 60 300 320
+preplace netloc m_axis_aresetn_1 1 0 2 50 430 NJ
+preplace netloc m_axis_aresetn_2 1 0 2 70 190 270
+preplace netloc xpm_cdc_gen_2_dest_arst 1 1 2 300 70 NJ
+preplace netloc xpm_cdc_gen_3_dest_arst 1 1 2 330 520 NJ
+preplace netloc Conn1 1 0 2 NJ 390 NJ
+preplace netloc Conn2 1 0 2 NJ 200 NJ
+preplace netloc hier_aurora_rst_tx1_M_AXIS 1 2 1 NJ 430
+preplace netloc hier_aurora_rst_tx_M_AXIS 1 2 1 NJ 240
+levelinfo -pg 1 -10 170 450 590
+pagesize -pg 1 -db -bbox -sgen -170 0 710 620
+"
+}
+0

@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>8CH 整合紀錄</title>
+<style>
+:root{--bg:#ffffff;--fg:#1f2328;--muted:#59636e;--line:#d1d9e0;--head:#f6f8fa;--accent:#0969da;--warn-bg:#fff8c5;--warn-line:#d4a72c;--code:#eff1f3}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--bg:#0d1117;--fg:#e6edf3;--muted:#9198a1;--line:#3d444d;--head:#151b23;--accent:#4493f8;--warn-bg:#2e2a1a;--warn-line:#9e6a03;--code:#212830}}
+:root[data-theme="dark"]{--bg:#0d1117;--fg:#e6edf3;--muted:#9198a1;--line:#3d444d;--head:#151b23;--accent:#4493f8;--warn-bg:#2e2a1a;--warn-line:#9e6a03;--code:#212830}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.65 -apple-system,"Segoe UI","Noto Sans TC","Microsoft JhengHei",sans-serif}
+main{max-width:1180px;margin:0 auto;padding:32px 16px 64px}
+h1{font-size:1.7em;margin:0 0 .6em;padding-bottom:.3em;border-bottom:1px solid var(--line)}
+h2{font-size:1.35em;margin:2em 0 .6em;padding-bottom:.25em;border-bottom:1px solid var(--line)}
+h3{font-size:1.1em;margin:1.6em 0 .5em}
+hr{border:0;border-top:1px solid var(--line);margin:2em 0}
+code{font:0.88em ui-monospace,SFMono-Regular,Consolas,monospace;background:var(--code);padding:.12em .35em;border-radius:4px}
+.tw{overflow-x:auto;margin:.8em 0 1.2em}
+table{border-collapse:collapse;min-width:100%;font-size:.92em}
+th,td{border:1px solid var(--line);padding:6px 10px;text-align:left;vertical-align:top}
+th{background:var(--head);white-space:nowrap}
+tr:nth-child(even) td{background:color-mix(in srgb,var(--head) 55%,transparent)}
+blockquote{margin:1em 0;padding:.6em 1em;background:var(--warn-bg);border-left:4px solid var(--warn-line);color:var(--fg)}
+blockquote p{margin:0}
+ul,ol{padding-left:1.4em}
+li{margin:.2em 0}
+strong{color:var(--fg)}
+a{color:var(--accent)}
+@media print{body{font-size:11px}main{max-width:none;padding:0}.tw{overflow:visible}h2{break-before:auto}tr{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main>
+<h1>PJ22045_1R8T rev0.12_dev：8 通道 Calibration + Gain Control 整合紀錄</h1>
+<ul>
+<li>日期：2026-10-14 ~ 2026-10-15</li>
+<li>Target：<code>PJ22045_1R8T_release_rev0.12_20261014_dev/hardware/project_1.xpr</code>（Vivado 2025.2，xczu47dr-ffvg1517-2-i）</li>
+<li>Source：<code>Rex_Dev_Temporally/Calibration_Gain_Control</code></li>
+<li><strong>目前版本：build 03</strong> → <code>output_data/03/</code>：<code>pj22045_1r8t_cal8ch_03.bit</code> / <code>.ltx</code> / <code>.xsa</code>、<code>BOOT.bin</code>、<code>MANIFEST.txt</code></li>
+<li>報告：<code>hardware/scripts/log/</code>（<code>timing_impl.rpt</code>、<code>util.rpt</code>、<code>util_hier.rpt</code>、<code>cdc.rpt</code>、<code>clock_interaction.rpt</code>，目前為 build 03 的內容）</li>
+</ul>
+<hr />
+<h2>0. 版本歷程</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Build</th>
+<th>日期</th>
+<th>內容</th>
+<th>狀態</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>2026-10-14</td>
+<td>8 通道整合，包成 <code>hier_8CH</code></td>
+<td>❌ <strong>不能使用</strong>：Aurora 資料沒有接進各通道（見 3.4）；<code>output_data/01/INVALID_README.txt</code></td>
+</tr>
+<tr>
+<td>02</td>
+<td>2026-10-15</td>
+<td>拆掉 <code>hier_8CH</code>，Aurora 直接接各通道；Vitis / BOOT.bin 第一版</td>
+<td>可用，已被 build 03 取代</td>
+</tr>
+<tr>
+<td><strong>03</strong></td>
+<td>2026-10-15</td>
+<td><strong>RFDC NCO：ADC 0.84 → 1.04 GHz、DAC −0.84 → −1.04 GHz</strong>（8 通道，輸出頻率 2.5~3.5 GHz → 2.3~3.3 GHz）；重新產生 BOOT.bin</td>
+<td>✅ <strong>目前版本</strong></td>
+</tr>
+</tbody>
+</table></div>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Build</th>
+<th>WNS (ns)</th>
+<th>WHS (ns)</th>
+<th>最差路徑</th>
+<th>LUT / FF / BRAM / DSP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>+0.002</td>
+<td>+0.007</td>
+<td>Aurora <code>hier_rx_x0y3</code> 內的 system_ila（txoutclk）</td>
+<td>50.1% / 40.4% / 52.5% / 68.0%</td>
+</tr>
+<tr>
+<td>02</td>
+<td>+0.007</td>
+<td>+0.010</td>
+<td>FPGA_clk：Aurora <code>data_aligner</code> → ch4 Power Fit</td>
+<td>50.2% / 40.4% / 52.5% / 68.0%</td>
+</tr>
+<tr>
+<td>03</td>
+<td><strong>0.000</strong></td>
+<td>+0.010</td>
+<td>FPGA_clk：<code>timer_1/timestamp</code> → <code>hier_rx_x0y1</code> 的 debug ILA（同事原有設計）</td>
+<td>50.2% / 40.4% / 52.5% / 68.0%</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>1. Build 結果（build 03）</h2>
+<h3>1.1 Timing</h3>
+<p>整體 <strong>WNS 0.000 ns / WHS +0.010 ns</strong>，「All user specified timing constraints are met」，0 個失敗的 endpoint；synth / impl 都沒有 CRITICAL WARNING。</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Clock</th>
+<th>用途</th>
+<th>build 02 WNS / WHS (ns)</th>
+<th><strong>build 03 WNS / WHS (ns)</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FPGA_clk（256 MHz）</td>
+<td>資料路徑（8 通道、Aurora RX、RFDC AXIS）</td>
+<td>+0.007 / +0.011</td>
+<td><strong>0.000 / +0.010</strong></td>
+</tr>
+<tr>
+<td>RFADC0_CLK（240 MHz）</td>
+<td>ch1 / ch2 AGC</td>
+<td>+0.165 / +0.016</td>
+<td>+0.127 / +0.013</td>
+</tr>
+<tr>
+<td>RFADC1_CLK（240 MHz）</td>
+<td>ch3 / ch4 AGC</td>
+<td>+0.155 / +0.014</td>
+<td>+0.080 / +0.011</td>
+</tr>
+<tr>
+<td>RFADC2_CLK（240 MHz）</td>
+<td>ch5 / ch6 AGC</td>
+<td>+0.130 / +0.013</td>
+<td>+0.065 / +0.010</td>
+</tr>
+<tr>
+<td>RFADC3_CLK（240 MHz）</td>
+<td>ch7 / ch8 AGC</td>
+<td>+0.171 / +0.023</td>
+<td>+0.093 / +0.013</td>
+</tr>
+<tr>
+<td>clk_pl_0（100 MHz）</td>
+<td>AXI-Lite（reg map）</td>
+<td>+1.887 / +0.016</td>
+<td>+1.703 / +0.010</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>build 03 最差路徑（FPGA_clk，0.000 ns）：<code>timer_1/timestamp_reg[39]</code> → <code>hier_rx_x0y1/system_ila_0_2</code>（debug ILA），1 級邏輯，延遲 95% 是繞線。這條路徑在同事原有設計裡，不在新增邏輯中；只改 NCO，placement 變動後就落在這條線上（見 3.7）。</li>
+<li>整體餘裕幾乎為 0，之後再加邏輯或改設定，都可能出現 timing 問題。</li>
+</ul>
+<h3>1.2 Utilization</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>資源</th>
+<th>用量</th>
+<th>比例</th>
+<th>rev0.11 z2（47dr2）原本</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LUT</td>
+<td>213,477</td>
+<td>50.2%</td>
+<td>21.3%</td>
+</tr>
+<tr>
+<td>FF</td>
+<td>343,806</td>
+<td>40.4%</td>
+<td>16.1%</td>
+</tr>
+<tr>
+<td>BRAM tile</td>
+<td>566.5</td>
+<td>52.5%</td>
+<td>46.9%</td>
+</tr>
+<tr>
+<td>DSP</td>
+<td>2,904</td>
+<td>68.0%</td>
+<td>—</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>區塊</th>
+<th>LUT</th>
+<th>FF</th>
+<th>BRAM36 / 18</th>
+<th>DSP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8 個 cal_plus_gain_control 合計</td>
+<td>119,899</td>
+<td>201,808</td>
+<td>56 / 8</td>
+<td>2,904</td>
+</tr>
+<tr>
+<td>每個 cal_plus_gain_control_chN</td>
+<td>約 14,950 ~ 15,050</td>
+<td>約 25,230</td>
+<td>7 / 1</td>
+<td>363</td>
+</tr>
+<tr>
+<td>每個 rfdc_iq_combine_chN</td>
+<td>40</td>
+<td>161</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>system_reg_map</td>
+<td>320</td>
+<td>590</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>vio_ext_inputs</td>
+<td>228</td>
+<td>875</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>smartconnect_0（23 MI）</td>
+<td>2,550</td>
+<td>3,392</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>aurora_gty_47drto13p_0（原有）</td>
+<td>48,335</td>
+<td>71,299</td>
+<td>201 / 25</td>
+<td>0</td>
+</tr>
+</tbody>
+</table></div>
+<hr />
+<h2>2. 修改內容（Source → Target）</h2>
+<h3>2.1 Source 專案（Calibration_Gain_Control）新增的功能</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Signal Source Mux</td>
+<td>新增 <code>axis_iq_source_mux.v</code>：純組合邏輯 mux（latency 0），放在 <code>axis_iq_bypass_0</code> 前面；沒被選到的那一路 tready 固定為 1，資料直接丟掉</td>
+</tr>
+<tr>
+<td>BD 輸入</td>
+<td><code>cal_plus_gain_control.bd</code> 的輸入改成兩路：<code>s_axis_iq_in_0</code>、<code>s_axis_iq_in_1</code>（160-bit，256 MHz）</td>
+</tr>
+<tr>
+<td>Reg map</td>
+<td>channel 新增 <strong>mem39 <code>signal_source_select</code></strong>（0x09C，0 = in_0，1 = in_1，reset 0），經 <code>cal_cdc_0</code> 同步；reserved 改成 mem40~63</td>
+</tr>
+<tr>
+<td>文件 / 腳本</td>
+<td><code>regmap_def.py</code> 與產生的 <code>addressable_reg_map.v</code>、Excel <code>Reg_map_tx_ch_v0.2.xlsx</code>、<code>reg_rt.tcl</code> / <code>reg_template.tcl</code> / <code>README.md</code></td>
+</tr>
+<tr>
+<td>驗證</td>
+<td>新增 <code>tb_axis_iq_source_mux</code>，回歸 11 個 TB 全部 PASS</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.2 Target 專案新增的檔案</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>檔案</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hardware/project_1.srcs/sources_1/new/cal_plus_gain_control/</code>（40 個 RTL）</td>
+<td>container 用到的 module_ref（含 <code>agc_emu/</code>、<code>squareroot/</code>），由 source 複製</td>
+</tr>
+<tr>
+<td><code>hardware/project_1.srcs/sources_1/bd/cal_plus_gain_control/</code></td>
+<td>由 source <code>write_bd_tcl</code> 匯出後重建；cell、net、port、參數和 source 完全相同</td>
+</tr>
+<tr>
+<td><code>hardware/project_1.srcs/constrs_1/new/cal_plus_gain_control.xdc</code></td>
+<td>reg map <code>cfg_r*</code> → 資料時脈的 false path（以 <code>cal_cdc_0</code> 目的端時脈指定，不依賴 clock 名稱）</td>
+</tr>
+<tr>
+<td><code>hardware/project_1.srcs/sources_1/ip/onebit_cdc_fifo/</code></td>
+<td>補回原有設計缺少的 IP（見 3.2）</td>
+</tr>
+<tr>
+<td><code>software/</code>（<code>platform/</code> + <code>app_component/</code>）</td>
+<td>Vitis workspace（見第 4 節）</td>
+</tr>
+<tr>
+<td><code>docs/Reg_map/Reg_map_tx_ch_v0.1.xlsx</code>、<code>Reg_map_emu_sys_v0.1.xlsx</code></td>
+<td>target 的 Register map：暫存器定義同 source tx_ch v0.2 / emu_sys v0.1，base address 改成 target 的；含 <code>Channel_Map</code> 工作表；由 <code>docs/tools/</code> 產生</td>
+</tr>
+<tr>
+<td><code>reg_runtime/</code></td>
+<td>XSDB runtime 腳本：支援 ch1~ch8，位址改成 target 的，移除 RX ch7</td>
+</tr>
+<tr>
+<td><code>hardware/scripts/</code>、<code>software/*.py</code></td>
+<td>整合、build 與 Vitis 腳本（見第 6 節）</td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.3 design_1.bd 的修改</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cal_plus_gain_control_ch1~8</code></td>
+<td>8 個 BD container，<strong>直接放在 design_1 頂層</strong>（不包 hierarchy，原因見 3.4）</td>
+</tr>
+<tr>
+<td><code>rfdc_iq_combine_ch1~8</code></td>
+<td>ADC I / Q（mXY0 / mXY1）合併成 160-bit 送 in_1，放在 design_1 頂層</td>
+</tr>
+<tr>
+<td><code>system_reg_map</code></td>
+<td>新增（BUILD_VERSION = 0）；sys0~13、15、16 接到 8 個 channel 的 <code>reg_*</code></td>
+</tr>
+<tr>
+<td><code>vio_ext_inputs</code></td>
+<td>新增，32 個 probe_out（每通道 4 個：<code>rx_att_index[2:0]</code>、<code>algo_analog_att_db[8:0]</code>、<code>pulse_avg_amp[15:0]</code>、<code>pulse_papr[8:0]</code>），clk = FPGA_clk</td>
+</tr>
+<tr>
+<td><code>smartconnect_0</code></td>
+<td>NUM_MI 6 → 23（M06~M21 = ch1~8 Register / BRAM，M22 = system_reg_map）</td>
+</tr>
+<tr>
+<td>RFDC flag</td>
+<td><code>adcT_01/23</code> 的 <code>over_range</code> / <code>over_voltage</code> / <code>over_threshold1</code> / <code>over_threshold2</code> 接到對應 channel；<code>clear_or</code> / <code>clear_ov</code> 也接上（接法同 source）</td>
+</tr>
+<tr>
+<td>RFDC ADC0~3 Outclk</td>
+<td>30 MHz → <strong>240 MHz</strong>（<code>clk_adc0~3</code> = AGC 的 adc_clk，對齊 source）</td>
+</tr>
+<tr>
+<td><strong>RFDC NCO（build 03）</strong></td>
+<td><strong>ADC <code>ADC_NCO_Freq00/02/10/12/20/22/30/32</code>：0.84 → 1.04 GHz；DAC <code>DAC_NCO_Freq00/02/10/12/20/22/30/32</code>：−0.84 → −1.04 GHz</strong>（Rex 修改；輸出頻率範圍 2.5~3.5 GHz → 2.3~3.3 GHz；和 source 一致；RFDC 其他參數沒有變動）</td>
+</tr>
+<tr>
+<td>舊的 BDC variant</td>
+<td>刪除沒在用的 <code>cal_plus_gain_control_inst_0~7</code>（fileset 與 gen 目錄），保留使用中的 <code>inst_8~15</code></td>
+</tr>
+<tr>
+<td>同事的設計</td>
+<td><code>hier_rx_*</code>、<code>hier_mts</code>、Aurora 等<strong>都沒有修改</strong></td>
+</tr>
+</tbody>
+</table></div>
+<h3>2.4 各通道接線</h3>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Ch</th>
+<th>in_0（Aurora）</th>
+<th>in_1（ADC → combiner）</th>
+<th>輸出 DAC</th>
+<th>adc_clk</th>
+<th>RFDC flag</th>
+<th>Reg map</th>
+<th>Gain BRAM</th>
+<th>VIO probe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>hier_rx_x0y2 / M_AXIS_C0</td>
+<td>m00 / m01</td>
+<td>s00</td>
+<td>clk_adc0</td>
+<td>adc0_01</td>
+<td>0xA009_0000</td>
+<td>0xA009_A000</td>
+<td>0~3</td>
+</tr>
+<tr>
+<td>2</td>
+<td>hier_rx_x0y2 / M_AXIS_C1</td>
+<td>m02 / m03</td>
+<td>s02</td>
+<td>clk_adc0</td>
+<td>adc0_23</td>
+<td>0xA009_1000</td>
+<td>0xA009_C000</td>
+<td>4~7</td>
+</tr>
+<tr>
+<td>3</td>
+<td>hier_rx_x0y1 / M_AXIS_C0</td>
+<td>m10 / m11</td>
+<td>s10</td>
+<td>clk_adc1</td>
+<td>adc1_01</td>
+<td>0xA009_2000</td>
+<td>0xA009_E000</td>
+<td>8~11</td>
+</tr>
+<tr>
+<td>4</td>
+<td>hier_rx_x0y1 / M_AXIS_C1</td>
+<td>m12 / m13</td>
+<td>s12</td>
+<td>clk_adc1</td>
+<td>adc1_23</td>
+<td>0xA009_3000</td>
+<td>0xA00A_0000</td>
+<td>12~15</td>
+</tr>
+<tr>
+<td>5</td>
+<td>hier_rx_x0y3 / M_AXIS_C0</td>
+<td>m20 / m21</td>
+<td>s20</td>
+<td>clk_adc2</td>
+<td>adc2_01</td>
+<td>0xA009_4000</td>
+<td>0xA00A_2000</td>
+<td>16~19</td>
+</tr>
+<tr>
+<td>6</td>
+<td>hier_rx_x0y3 / M_AXIS_C1</td>
+<td>m22 / m23</td>
+<td>s22</td>
+<td>clk_adc2</td>
+<td>adc2_23</td>
+<td>0xA009_5000</td>
+<td>0xA00A_4000</td>
+<td>20~23</td>
+</tr>
+<tr>
+<td>7</td>
+<td>hier_rx_x0y4 / M_AXIS_C0</td>
+<td>m30 / m31</td>
+<td>s30</td>
+<td>clk_adc3</td>
+<td>adc3_01</td>
+<td>0xA009_6000</td>
+<td>0xA00A_6000</td>
+<td>24~27</td>
+</tr>
+<tr>
+<td>8</td>
+<td>hier_rx_x0y4 / M_AXIS_C1</td>
+<td>m32 / m33</td>
+<td>s32</td>
+<td>clk_adc3</td>
+<td>adc3_23</td>
+<td>0xA009_7000</td>
+<td>0xA00A_8000</td>
+<td>28~31</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>system_reg_map：<code>0xA009_8000</code>。原有的位址（0xA000_0000 ~ 0xA008_xxxx）都沒動。</li>
+<li>共用訊號：clk = FPGA_clk 256 MHz（<code>util_ds_buf_0/IBUF_OUT</code>）；rst_n = <code>dac_rst1/peripheral_aresetn</code>；S_AXI_ACLK = <code>pl_clk0</code>；S_AXI_resetn = <code>rst_ps8_0_96M/peripheral_aresetn</code>。</li>
+<li>輸出到 DAC 的對應（s00 ~ s32）和原本 Aurora 直接送 DAC 時一樣。</li>
+<li>原有的 <code>system_ila_0/SLOT_0_AXIS</code> 仍然監看 ch1 in_0（hier_rx_x0y2 / M_AXIS_C0）。</li>
+<li>已確認產生的 HDL：8 個通道的 <code>s_axis_iq_in_0_tdata</code> 都是 <code>[159:0]</code>，由對應的 <code>hier_rx_x0yN/M_AXIS_Cx_tdata</code> 驅動。</li>
+</ul>
+<hr />
+<h2>3. 遇到的問題與額外修改（需和同事確認）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>Build</th>
+<th>問題</th>
+<th>處理方式</th>
+<th>有沒有改到設計</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>01</td>
+<td>Target 的 <code>clk_adc0~3</code> 是 30 MHz，source 是 240 MHz</td>
+<td>RFDC ADC0~3 Outclk 改成 240 MHz（見 3.1）</td>
+<td><strong>有</strong>（RFDC 設定）</td>
+</tr>
+<tr>
+<td>2</td>
+<td>01</td>
+<td><strong>rev0.11 release 少了 <code>onebit_cdc_fifo.xci</code></strong>，impl 在 DRC INBB-3（black box）失敗</td>
+<td>從 Calibration_Gain_Control 補回（見 3.2）</td>
+<td>只是補回原有 IP</td>
+</tr>
+<tr>
+<td>3</td>
+<td>01</td>
+<td>8 個 BDC variant 裡有 6 種 module_ref 沒產生 synth wrapper，OOC 報 <code>Synth 8-439 module not found</code></td>
+<td>build 腳本對缺 wrapper 的 variant 執行 <code>reset_target</code> + <code>generate_target</code>（見 3.3）</td>
+<td>沒有（build 流程）</td>
+</tr>
+<tr>
+<td>4</td>
+<td>01 → 02</td>
+<td><strong>包成 <code>hier_8CH</code> 後，Aurora 資料沒有接進各通道（build 01 無效）</strong></td>
+<td>拆掉 <code>hier_8CH</code>（見 3.4）</td>
+<td>只改我們新增的部分</td>
+</tr>
+<tr>
+<td>5</td>
+<td>01~03</td>
+<td>OOC run 隨機出現 Bus error / <code>Failed to create directory ~/.Xilinx/Vivado/tclapp</code></td>
+<td>自動 reset 失敗的 run 後重跑（見 3.5）</td>
+<td>沒有</td>
+</tr>
+<tr>
+<td>6</td>
+<td>01</td>
+<td>沒在用的 <code>cal_plus_gain_control_inst_0~7</code></td>
+<td>刪除 fileset 與 gen 目錄</td>
+<td>沒有</td>
+</tr>
+<tr>
+<td>7</td>
+<td>03</td>
+<td><strong>WNS 剛好 0.000 ns</strong>，最差路徑在同事的 debug ILA</td>
+<td>目前收斂，沒有處理（見 3.6）</td>
+<td>沒有</td>
+</tr>
+<tr>
+<td>8</td>
+<td>02</td>
+<td>開 GUI 時偶發 <code>BD 41-1726</code>（ch6 <code>axis_iq_split_0</code> 找不到 module）</td>
+<td>一次性訊息，batch 重開不會出現（見 3.7）</td>
+<td>沒有</td>
+</tr>
+</tbody>
+</table></div>
+<h3>3.1 RFDC ADC Outclk 30 → 240 MHz</h3>
+<ul>
+<li>改了什麼：<code>usp_rf_data_converter_1</code> 的 <code>ADC0~3_Outclk_Freq</code> 從 30.000 改成 240.000。</li>
+<li>影響範圍：<code>clk_adc0~3</code>。用到的地方有 8 個 channel 的 AGC（adc_clk），以及原有的 <code>hier_mts/sync_out_latch_1</code>（clk_adc0；只是 latch，和頻率無關）。</li>
+<li>請同事確認：原本設成 30 MHz 有沒有特別原因，以及 <code>clk_adc0</code> 改成 240 MHz 後，<code>hier_mts</code> 的 MTS / SYSREF 流程是否還正確。</li>
+</ul>
+<h3>3.2 <code>onebit_cdc_fifo</code> IP 遺失</h3>
+<ul>
+<li>位置：<code>hier_mts/daq_timing_ctrl_0</code>（<code>daq_timing_ctrl.vhd</code>）裡的 <code>u_onebit_cdc_fifo_eth_valid</code>，用途是把 <code>eth_info_valid</code> 脈衝從 <code>clk_eth</code> 跨到 <code>clk_adc</code>。</li>
+<li>原因：rev0.11 的 release 清理清單 <code>source/scripts/cleanup/remove_47dr2.txt</code> 把 <code>47dr2.srcs/sources_1/ip/onebit_cdc_fifo/onebit_cdc_fifo.xci</code> 刪掉了，<code>47dr2.xpr</code> 也不再登錄這顆 IP。</li>
+<li>同事當時的 build 是正常的：<code>build_47dr2_b5.log</code> 顯示 build 時這顆 IP 還在。所以 rev0.11 的 bit / xsa 沒有問題，只是 release 裡的原始碼不完整。</li>
+<li><strong>47dr1 也一樣</strong>：<code>remove_47dr1.txt</code> 也刪了這顆 IP。直接拿 rev0.11 release 的 source 重 build，兩個專案都會失敗。</li>
+<li>處理方式：從 Calibration_Gain_Control 複製同一份 xci（和同事 baseline「Baseline: restore 47DR_integrated_3 (EnableI2c)」相同）：fifo_generator 13.2、1 bit × 16、Independent Clocks Distributed RAM、Standard FIFO。兩邊的 <code>daq_timing_ctrl.vhd</code> 也相同。</li>
+<li>請同事確認：補回的 IP 設定是否和他原本用的一致，並更新 release，補回 47dr1 / 47dr2 的這顆 IP。</li>
+</ul>
+<h3>3.3 BDC variant 的 module_ref wrapper 沒產生</h3>
+<ul>
+<li>現象：每個 <code>cal_plus_gain_control_inst_N</code> 裡，<code>agc_att_mux</code>、<code>agc_reg_pack</code>、<code>rxagc_dummy</code>、<code>sr_att_pins</code>、<code>sr_src_mux</code>、<code>txagc_dummy</code> 這 6 種 module_ref 只有 <code>.xci</code> / <code>.xml</code>，沒有 <code>synth/&lt;ip&gt;.v</code>。8 個通道全部失敗，不是隨機發生。</li>
+<li>原因：這些 variant BD 被標記為「已產生」，但輸出不完整，所以對 <code>design_1</code> 執行 <code>generate_target</code> 時直接跳過了它們。</li>
+<li>處理方式：對 variant BD 執行 <code>reset_target all</code> + <code>generate_target all</code> 後，wrapper 就齊了。<code>build_full_xsa.tcl</code> 會先檢查，有缺才重新產生，並確認全部齊全才開始 build。</li>
+</ul>
+<h3>3.4 <code>hier_8CH</code> 造成 Aurora 資料沒有接進通道（build 01 無效）</h3>
+<ul>
+<li>背景：同事的 <code>hier_rx_x0yN/M_AXIS_C0/C1</code> 這 8 個 hier pin，BD 裡的 mode 是 <strong>Monitor</strong>，不是 Master。實際驅動資料的是內部 <code>data_aligner/m_axis</code>，同時有 system_ila 監看。</li>
+<li>rev0.11 原本直接接 RFDC DAC（Slave）時沒問題，因為 RFDC 的 port 本身固定 160 bit，HDL 會正確接上 tdata / tvalid（已確認 rev0.11 的 HDL）。</li>
+<li>包成 <code>hier_8CH</code> 後，<code>group_bd_cells</code> 也把新建的 hier pin 推斷成 Monitor。結果變成 Monitor 接 Monitor，產生的 HDL 中這 8 組 port 成為 hier 的 output，頂層也沒有接上。<strong>build 01 的 8 個通道 in_0 都沒有 Aurora 資料</strong>，validate 也沒有報錯。</li>
+<li>嘗試過把 hier pin 改成 Slave：線接上了，但 hier pin 拿不到 AXIS 參數（Monitor 端不提供，hier pin 參數唯讀），tdata 只有 1 bit。</li>
+<li>最後的做法（Rex 決定）：<strong>拆掉 <code>hier_8CH</code></strong>，各通道直接放在頂層：<code>hier_rx</code>（Monitor）→ <code>cal_plus_gain_control_chN/s_axis_iq_in_0</code>（Slave，160 bit），和 rev0.11「<code>hier_rx</code> → RFDC DAC」是同一種接法，同事的設計完全不動。</li>
+<li>給同事的建議（非必要）：<code>hier_rx_*</code> 的 <code>M_AXIS_C0/C1</code> 應該是 Master。改成 Master 後，下游就可以再包 hierarchy。</li>
+</ul>
+<h3>3.5 工作站 <code>~/.Xilinx</code> 共用造成的隨機錯誤</h3>
+<ul>
+<li>平行跑 OOC run 時，偶爾會有 run 在啟動時出現 Bus error（Abnormal program termination），或 <code>Failed to create directory ~/.Xilinx/Vivado/tclapp</code>（資料夾其實存在）。</li>
+<li>build 腳本會自動 reset 失敗的 run 後重跑。出現 <code>tclapp</code> 錯誤的 run 實際上都有完成（COMPLETE、dcp 都有產生）。</li>
+<li>重新打開專案時，Messages 視窗會從 run 的記錄載入這些舊的 error，可以忽略。不要為了讓訊息消失去 reset run，否則 OOC 會全部重跑。</li>
+</ul>
+<h3>3.6 build 03 的 timing 餘裕為 0</h3>
+<ul>
+<li>最差路徑：<code>timer_1/timestamp_reg[39]</code> → <code>hier_rx_x0y1/system_ila_0_2</code>（debug ILA 的 probe），requirement 3.906 ns，data path 3.485 ns，95% 是繞線，clock skew −0.411 ns。</li>
+<li>這條路徑在同事原有設計裡。build 03 只改了 NCO，但 placement 變動後最差路徑就落到這裡；build 02 時同一條路徑還有餘裕。</li>
+<li>目前收斂，沒有處理。之後如果沒收斂，可以考慮：</li>
+<li>在 ILA 的 <code>timestamp</code> probe 前加一級暫存器。</li>
+<li>或者拿掉不需要的 debug ILA。</li>
+</ul>
+<p>兩者都會動到同事的設計，需要先討論。</p>
+<h3>3.7 GUI 開啟時偶發的 <code>BD 41-1726</code></h3>
+<ul>
+<li>2026-10-15 開 GUI 時，只有 ch6 的 <code>axis_iq_split_0</code> 報一次「Unable to resolve module-source」。其他 7 個通道、以及 ch6 其他 module_ref 都正常。</li>
+<li>batch 重開沒有出現，<code>report_ip_status</code> 顯示為 Up-to-date，GUI 的 <code>validate_bd_design</code> 也正常。推測是 GUI 還在背景解析 RTL 時就先開了 BD。</li>
+</ul>
+<hr />
+<h2>4. 軟體（Vitis / BOOT.bin）</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Workspace</td>
+<td><code>software/</code>：<code>platform/</code>（build 03 XSA；zynqmp_fsbl + standalone_psu_cortexa53_0，libmetal，stdout psu_uart_0）+ <code>app_component/</code>（empty application）</td>
+</tr>
+<tr>
+<td>原始碼</td>
+<td>由 Calibration_Gain_Control <code>software/app_component/src</code>（build 14）複製後改成 8 通道</td>
+</tr>
+<tr>
+<td><code>register_map.h/.c</code></td>
+<td>ch1~ch8 base（<code>0xA009_0000</code> + 0x1000×(N−1)）、system <code>0xA009_8000</code>；新增 mem39；移除 RX ch7；初始化依序寫 system + ch1~ch8，每個暫存器寫完讀回比對</td>
+</tr>
+<tr>
+<td><code>reg_map_cfg.c</code></td>
+<td>SYSTEM 初值同 source；ch1~ch8 各自完整欄位（<code>REG_MAP_CFG_CH[8]</code>）</td>
+</tr>
+<tr>
+<td>開機初值（Rex 指定）</td>
+<td>FIR = impulse response（tap7 I = <code>0x7FFF</code>，其餘 0，enable = 1，和 FIR disable 時硬體用的係數相同）；mem39 = 0（Aurora）；mem38 = 0（完整處理路徑）；其他沿用 source ch1</td>
+</tr>
+<tr>
+<td><code>bram.h/.c</code></td>
+<td>8 通道 gain 表（<code>0xA009_A000</code> + 0x2000×(N−1)）；每通道寫入後讀回比對，UART 印出 OK / FAIL</td>
+</tr>
+<tr>
+<td><code>adcThresholds.c</code></td>
+<td>8 個 ADC 都設定 threshold：chN = tile (N−1)/2、block (N−1)%2</td>
+</tr>
+<tr>
+<td><code>main.c</code> 流程</td>
+<td>和 source 相同：RFDC init → GPIO → BRAM → reg map → ADC threshold → RFDC reset → MTS → MBS（中間有 BMC GPIO handshake）</td>
+</tr>
+<tr>
+<td>沒有處理</td>
+<td>同事的 <code>axi_gpio_arstn</code>（0xA001_0000）/ <code>axi_delay</code>（0xA008_0000），維持同事 §15 的人工操作流程</td>
+</tr>
+<tr>
+<td>BOOT.bin</td>
+<td><code>software/app_component/boot.bif</code>：FSBL + bit + app elf（格式同 source 的 <code>test.bif</code>，<strong>沒有 PMUFW</strong>）；輸出到 <code>output_data/&lt;build&gt;/BOOT.bin</code> 與 <code>software/app_component/BOOT.bin</code></td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li>驗證方式（Rex）：上板後看 UART 的 BRAM 讀回結果，並用 <code>reg_runtime/</code> 的 XSDB 腳本讀寫 reg map；用 <code>reg_wr signal_source_select 1</code> 切到 ADC loopback。</li>
+<li>目前只確認了編譯成功（沒有 warning / error），以及 ELF 中 8 通道的 reg map / BRAM base、FIR tap、mem39 / mem38 的值正確，<strong>尚未上板</strong>。</li>
+<li>開機會停在第一次 BMC handshake（BRAM / reg map / ADC threshold 在 handshake 之前就已經完成）。PS / BMC 由另一位同事負責。</li>
+</ul>
+<hr />
+<h2>5. 待確認事項</h2>
+<ol>
+<li><strong>z1（47dr1）的 NCO 需要一起改（Rex 已確認 z1 尚未修改）</strong>：build 03 的 z2 改成 ADC 1.04 / DAC −1.04 GHz，但 z1 的 ADC NCO 仍是 rev0.11 的 0.84 GHz。z2 本板的 ADC loopback（in_1）兩邊一致，不受影響；Aurora 這一路（in_0）則是 z1 用 0.84 降頻、z2 用 −1.04 升頻，兩邊不一致，輸出頻率理論上會偏移 0.2 GHz（未驗證）。要讓整個系統變成 2.3~3.3 GHz，z1 的 ADC NCO 也要改成 1.04 GHz 並重新 build。</li>
+<li><strong>預設行為改變</strong>：mem39 預設 0（Aurora），這一路現在會經過 FIR（目前是 impulse）/ calibration / gain 處理，不再是原本「Aurora 直接送 DAC」。要恢復原本的行為，需要把 mem38 <code>bypass_axis_iq</code> 設成 1。</li>
+<li><strong>Timing 餘裕為 0</strong>（見 3.6）：最差路徑在同事的 debug ILA，是否要調整。</li>
+<li>RFDC ADC Outclk 改成 240 MHz 對原有 MTS 流程的影響（見 3.1）。</li>
+<li><code>onebit_cdc_fifo</code> 設定是否正確，以及 rev0.11 release 的修正（見 3.2）。</li>
+<li>同事 <code>hier_rx_*</code> 的 <code>M_AXIS_C0/C1</code> 是 Monitor mode，是否改成 Master（見 3.4）。</li>
+<li><strong>SR 腳位沒有接</strong>：每個 channel 的 <code>Reg1~5_SER / SRCLK / RCLK</code>（74LVC595）目前沒有拉到頂層，也沒有腳位約束。</li>
+<li><strong>VIO 是暫時的輸入</strong>：<code>rx_att_index</code> / <code>algo_analog_att_db</code> / <code>pulse_avg_amp</code> / <code>pulse_papr</code> 目前由 VIO 提供，之後要改接正式的來源。</li>
+<li><strong>build_version</strong>：<code>system_reg_map</code> 的 BUILD_VERSION 目前是 0（sys14 讀回 0）。</li>
+<li><strong>BOOT.bin 沒有 PMUFW</strong>（同 source）；PS 程式不處理 <code>arstn</code> / <code>axi_delay</code>；開機會等 BMC handshake。</li>
+</ol>
+<hr />
+<h2>6. 腳本與備份</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>腳本</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>hardware/scripts/build_and_boot.sh &lt;idx&gt;</code></td>
+<td><strong>一次完成</strong>：Vivado build → Vitis 更新 platform → 重編 app → bootgen → MANIFEST；timing 沒收斂就停止</td>
+</tr>
+<tr>
+<td><code>hardware/scripts/build_full_xsa.tcl</code></td>
+<td>wrapper 檢查 + synth / impl / bitstream / 報告 / XSA（<code>-jobs 4</code>，失敗自動重跑）</td>
+</tr>
+<tr>
+<td><code>hardware/scripts/cal_plus_gain_control_bd.tcl</code></td>
+<td>source 匯出的 BD Tcl</td>
+</tr>
+<tr>
+<td><code>hardware/scripts/integrate_cal_plus_gain_control.tcl</code></td>
+<td>加入 RTL / XDC、建立 BD、8 個 container、system_reg_map、smartconnect、位址分配</td>
+</tr>
+<tr>
+<td><code>hardware/scripts/hier_8ch_vio_flags.tcl</code></td>
+<td>RFDC Outclk 240 MHz、VIO、RFDC flag / clear、包成 hier_8CH（hier_8CH 之後已拆掉）</td>
+</tr>
+<tr>
+<td><code>hardware/scripts/cleanup_stale_bdc_inst.tcl</code></td>
+<td>刪除沒在用的 BDC variant</td>
+</tr>
+<tr>
+<td><code>hardware/scripts/add_onebit_cdc_fifo.tcl</code></td>
+<td>補回 <code>onebit_cdc_fifo</code> IP</td>
+</tr>
+<tr>
+<td><code>hardware/scripts/fix_hier8ch_in0_slave.tcl</code> / <code>fix_hier8ch_in0_width.tcl</code></td>
+<td>嘗試把 hier_8CH 的 in_0 改成 Slave（沒有成功，已被 <code>ungroup_hier8ch.tcl</code> 取代）</td>
+</tr>
+<tr>
+<td><code>hardware/scripts/ungroup_hier8ch.tcl</code></td>
+<td>拆掉 hier_8CH</td>
+</tr>
+<tr>
+<td><code>software/create_platform.py</code> / <code>create_app.py</code></td>
+<td>建立 Vitis platform / app（只在第一次）</td>
+</tr>
+<tr>
+<td><code>software/update_platform.py</code>（<code>BUILD_IDX=&lt;idx&gt;</code>）/ <code>rebuild_app.py</code></td>
+<td>XSA 更新後重建 platform / app</td>
+</tr>
+<tr>
+<td><code>docs/tools/regmap_def.py</code> / <code>mk_regmap_v8.py</code></td>
+<td>產生 target 的 Register map Excel</td>
+</tr>
+</tbody>
+</table></div>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>備份（<code>backup/</code>）</th>
+<th>內容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>backup_before_cal_gain_integration_20261014.tar.gz</code></td>
+<td>target 整合前（xpr + srcs）</td>
+</tr>
+<tr>
+<td><code>backup_before_hier_8ch_20261014.tar.gz</code></td>
+<td>包 hier_8CH 前（xpr + BD）</td>
+</tr>
+<tr>
+<td><code>backup_before_in0_slave_fix_20261014.tar.gz</code></td>
+<td>in_0 改 Slave 前</td>
+</tr>
+<tr>
+<td><code>backup_before_ungroup_hier8ch_20261015.tar.gz</code></td>
+<td>拆 hier_8CH 前</td>
+</tr>
+<tr>
+<td><code>backup_before_nco_104_build03_20261015.tar.gz</code></td>
+<td>build 03 前（已含 Rex 的 NCO 修改）</td>
+</tr>
+<tr>
+<td><code>Calibration_Gain_Control/backup/backup_before_signal_source_mux_20261014.tar.gz</code></td>
+<td>source 加 Signal Source Mux 前</td>
+</tr>
+</tbody>
+</table></div>
+<blockquote>
+<p>rev0.11 release 資料夾全程只有讀取、沒有修改。</p>
+</blockquote>
+</main>
+</body>
+</html>

@@ -1,0 +1,81 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2025.2 (lin64) Build 6299465 Fri Nov 14 12:34:56 MST 2025
+| Date         : Sat Oct 17 20:19:24 2026
+| Host         : WP-JX-Dell running 64-bit Ubuntu 22.04.5 LTS
+| Command      : report_utilization -hierarchical -hierarchical_depth 3 -file /home/rex/Desktop/Atlas_Integrated/PJ22045_Release_Debug/Debug_007_VU13P_bidirectional/VU13P/reports/utilization_hier.rpt
+| Design       : aurora_gty_vu13p_rst_wrapper
+| Device       : xcvu13p-fhgb2104-2-i
+| Speed File   : -2
+| Design State : Routed
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Utilization by Hierarchy
+
+1. Utilization by Hierarchy
+---------------------------
+
++------------------------------+--------------------------------------------------------------------------------------------+------------+------------+---------+-------+--------+--------+--------+------+------------+
+|           Instance           |                                           Module                                           | Total LUTs | Logic LUTs | LUTRAMs |  SRLs |   FFs  | RAMB36 | RAMB18 | URAM | DSP Blocks |
++------------------------------+--------------------------------------------------------------------------------------------+------------+------------+---------+-------+--------+--------+--------+------+------------+
+| aurora_gty_vu13p_rst_wrapper |                                                                                      (top) |      58415 |      46793 |      20 | 11602 | 161201 |    456 |     54 |    0 |          0 |
+|   aurora_gty_vu13p_rst_i     |                                                                       aurora_gty_vu13p_rst |      57663 |      46061 |       0 | 11602 | 160136 |    456 |     54 |    0 |          0 |
+|     ila_bcast_1              |                                                         aurora_gty_vu13p_rst_ila_bcast_1_0 |       4143 |       2652 |       0 |  1491 |   7963 |     36 |      3 |    0 |          0 |
+|       inst                   |                                                 aurora_gty_vu13p_rst_ila_bcast_1_0_bd_3fce |       4143 |       2652 |       0 |  1491 |   7963 |     36 |      3 |    0 |          0 |
+|     aurora_gty_vu13pto47_0   |                                                              aurora_gty_vu13pto47dr_inst_0 |      43989 |      35733 |       0 |  8256 | 126002 |    352 |     48 |    0 |          0 |
+|       hier_x1y10             |                                                                      hier_x1y10_imp_ICXCRB |       2062 |       2025 |       0 |    37 |   7887 |      4 |      0 |    0 |          0 |
+|       hier_x1y11             |                                                                      hier_x1y11_imp_Z1H23J |       2058 |       2021 |       0 |    37 |   7887 |      4 |      0 |    0 |          0 |
+|       hier_x1y4              |                                                                      hier_x1y4_imp_1N3VIYS |       2058 |       2021 |       0 |    37 |   7887 |      4 |      0 |    0 |          0 |
+|       hier_x1y5              |                                                                      hier_x1y5_imp_1SRF5CC |       2059 |       2022 |       0 |    37 |   7887 |      4 |      0 |    0 |          0 |
+|       hier_x1y6              |                                                                      hier_x1y6_imp_1C7T590 |       2063 |       2026 |       0 |    37 |   7887 |      4 |      0 |    0 |          0 |
+|       hier_x1y7              |                                                                      hier_x1y7_imp_14EUBX8 |       2056 |       2019 |       0 |    37 |   7887 |      4 |      0 |    0 |          0 |
+|       hier_x1y8              |                                                                       hier_x1y8_imp_815JHH |       2062 |       2025 |       0 |    37 |   7887 |      4 |      0 |    0 |          0 |
+|       hier_x1y9              |                                                                       hier_x1y9_imp_91CJCD |       2072 |       2035 |       0 |    37 |   7887 |      4 |      0 |    0 |          0 |
+|       ila_x1y10              |                                                  aurora_gty_vu13pto47dr_inst_0_ila_x1y10_0 |       2237 |       1532 |       0 |   705 |   4179 |     32 |      2 |    0 |          0 |
+|       ila_x1y11              |                                                  aurora_gty_vu13pto47dr_inst_0_ila_x1y11_0 |       2235 |       1530 |       0 |   705 |   4179 |     32 |      2 |    0 |          0 |
+|       ila_x1y4               |                                                   aurora_gty_vu13pto47dr_inst_0_ila_x1y4_0 |       2235 |       1530 |       0 |   705 |   4179 |     32 |      2 |    0 |          0 |
+|       ila_x1y5               |                                                   aurora_gty_vu13pto47dr_inst_0_ila_x1y5_0 |       2236 |       1531 |       0 |   705 |   4203 |     32 |      2 |    0 |          0 |
+|       ila_x1y6               |                                                   aurora_gty_vu13pto47dr_inst_0_ila_x1y6_0 |       2236 |       1531 |       0 |   705 |   4179 |     32 |      2 |    0 |          0 |
+|       ila_x1y7               |                                                   aurora_gty_vu13pto47dr_inst_0_ila_x1y7_0 |       2234 |       1529 |       0 |   705 |   4179 |     32 |      2 |    0 |          0 |
+|       ila_x1y8               |                                                   aurora_gty_vu13pto47dr_inst_0_ila_x1y8_0 |       2235 |       1530 |       0 |   705 |   4179 |     32 |      2 |    0 |          0 |
+|       ila_x1y9               |                                                   aurora_gty_vu13pto47dr_inst_0_ila_x1y9_0 |       2237 |       1532 |       0 |   705 |   4179 |     32 |      2 |    0 |          0 |
+|       link_x1y10             |                                                                      link_x1y10_imp_978SZV |       1206 |        916 |       0 |   290 |   3680 |      8 |      4 |    0 |          0 |
+|       link_x1y11             |                                                                      link_x1y11_imp_84JJCZ |       1201 |        911 |       0 |   290 |   3680 |      8 |      4 |    0 |          0 |
+|       link_x1y4              |                                                                      link_x1y4_imp_1LY1EJD |       1202 |        912 |       0 |   290 |   3680 |      8 |      4 |    0 |          0 |
+|       link_x1y5              |                                                                      link_x1y5_imp_1TOFV0X |       1203 |        913 |       0 |   290 |   3680 |      8 |      4 |    0 |          0 |
+|       link_x1y6              |                                                                      link_x1y6_imp_1AN0AFD |       1204 |        914 |       0 |   290 |   3680 |      8 |      4 |    0 |          0 |
+|       link_x1y7              |                                                                      link_x1y7_imp_15704AP |       1205 |        915 |       0 |   290 |   3680 |      8 |      4 |    0 |          0 |
+|       link_x1y8              |                                                                       link_x1y8_imp_6Z3O54 |       1205 |        915 |       0 |   290 |   3680 |      8 |      4 |    0 |          0 |
+|       link_x1y9              |                                                                       link_x1y9_imp_AC7WMO |       1204 |        914 |       0 |   290 |   3680 |      8 |      4 |    0 |          0 |
+|     aurora_gty_vu13ptovu_0   |                                                             aurora_gty_vu13ptovu13p_inst_0 |       4782 |       4708 |       0 |    74 |  17250 |     32 |      0 |    0 |          0 |
+|       hier_x0y13             |                                                                      hier_x0y13_imp_G47Y0X |       1968 |       1931 |       0 |    37 |   7852 |      4 |      0 |    0 |          0 |
+|       axis_data_fifo_0       |                                          aurora_gty_vu13ptovu13p_inst_0_axis_data_fifo_0_0 |        100 |        100 |       0 |     0 |    165 |      3 |      0 |    0 |          0 |
+|       axis_data_fifo_1       |                                          aurora_gty_vu13ptovu13p_inst_0_axis_data_fifo_1_0 |         99 |         99 |       0 |     0 |    165 |      3 |      0 |    0 |          0 |
+|       axis_data_fifo_2       |                                          aurora_gty_vu13ptovu13p_inst_0_axis_data_fifo_2_0 |         99 |         99 |       0 |     0 |    165 |      3 |      0 |    0 |          0 |
+|       axis_data_fifo_3       |                                          aurora_gty_vu13ptovu13p_inst_0_axis_data_fifo_3_0 |        100 |        100 |       0 |     0 |    165 |      3 |      0 |    0 |          0 |
+|       axis_data_fifo_4       |                                          aurora_gty_vu13ptovu13p_inst_0_axis_data_fifo_4_0 |         99 |         99 |       0 |     0 |    165 |      3 |      0 |    0 |          0 |
+|       axis_data_fifo_5       |                                          aurora_gty_vu13ptovu13p_inst_0_axis_data_fifo_5_0 |        101 |        101 |       0 |     0 |    165 |      3 |      0 |    0 |          0 |
+|       axis_data_fifo_6       |                                          aurora_gty_vu13ptovu13p_inst_0_axis_data_fifo_6_0 |        100 |        100 |       0 |     0 |    165 |      3 |      0 |    0 |          0 |
+|       axis_data_fifo_7       |                                          aurora_gty_vu13ptovu13p_inst_0_axis_data_fifo_7_0 |        100 |        100 |       0 |     0 |    165 |      3 |      0 |    0 |          0 |
+|       axis_register_slice_0  |                                     aurora_gty_vu13ptovu13p_inst_0_axis_register_slice_0_0 |         11 |         11 |       0 |     0 |     50 |      0 |      0 |    0 |          0 |
+|       axis_register_slice_1  |                                     aurora_gty_vu13ptovu13p_inst_0_axis_register_slice_1_0 |         11 |         11 |       0 |     0 |     50 |      0 |      0 |    0 |          0 |
+|       axis_register_slice_2  |                                     aurora_gty_vu13ptovu13p_inst_0_axis_register_slice_2_0 |         11 |         11 |       0 |     0 |     50 |      0 |      0 |    0 |          0 |
+|       axis_register_slice_3  |                                     aurora_gty_vu13ptovu13p_inst_0_axis_register_slice_3_0 |         11 |         11 |       0 |     0 |     50 |      0 |      0 |    0 |          0 |
+|       hier_x0y11             |                                                                      hier_x0y11_imp_B220MB |       1972 |       1935 |       0 |    37 |   7852 |      4 |      0 |    0 |          0 |
+|     axis_slr_x1y4_to_z1      |                                                 aurora_gty_vu13p_rst_axis_slr_x1y4_to_z1_0 |        298 |        153 |       0 |   145 |    471 |      0 |      0 |    0 |          0 |
+|       inst                   | aurora_gty_vu13p_rst_axis_slr_x1y4_to_z1_0_axis_register_slice_v1_1_35_axis_register_slice |        298 |        153 |       0 |   145 |    471 |      0 |      0 |    0 |          0 |
+|     axis_slr_x1y8_to_tx      |                                                 aurora_gty_vu13p_rst_axis_slr_x1y8_to_tx_0 |        298 |        153 |       0 |   145 |    469 |      0 |      0 |    0 |          0 |
+|       inst                   | aurora_gty_vu13p_rst_axis_slr_x1y8_to_tx_0_axis_register_slice_v1_1_35_axis_register_slice |        298 |        153 |       0 |   145 |    469 |      0 |      0 |    0 |          0 |
+|     ila_bcast                |                                                           aurora_gty_vu13p_rst_ila_bcast_0 |       4146 |       2655 |       0 |  1491 |   7963 |     36 |      3 |    0 |          0 |
+|       inst                   |                                                   aurora_gty_vu13p_rst_ila_bcast_0_bd_e589 |       4146 |       2655 |       0 |  1491 |   7963 |     36 |      3 |    0 |          0 |
+|   dbg_hub                    |                                                                                    dbg_hub |        753 |        733 |      20 |     0 |   1065 |      0 |      0 |    0 |          0 |
+|     inst                     |                                                                 dbg_hub_xsdbm_v3_0_5_xsdbm |        753 |        733 |      20 |     0 |   1065 |      0 |      0 |    0 |          0 |
+|       BSCANID.u_xsdbm_id     |                                                              dbg_hub_xsdbm_v3_0_5_xsdbm_id |        753 |        733 |      20 |     0 |   1065 |      0 |      0 |    0 |          0 |
++------------------------------+--------------------------------------------------------------------------------------------+------------+------------+---------+-------+--------+--------+--------+------+------------+
+* Note: The sum of lower-level cells may be larger than their parent cells total, due to cross-hierarchy LUT combining
+
+

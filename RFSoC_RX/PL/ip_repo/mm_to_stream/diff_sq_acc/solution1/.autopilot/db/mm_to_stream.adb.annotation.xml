@@ -1,0 +1,8 @@
+<annotationInfo>
+<annotationInfo>
+<item  id="16" filename="src/diff_sq_acc.cpp" linenumber="49" name="tmp_1" contextFuncName="mm_to_stream" moduleName="mm_to_stream" rtlName="tmp_1_fu_137_p1" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\simple_test\ps_aurora_hls\ps_test_c2c_qsfp2_ps_slave\ip\mm_to_stream"><\/item>
+<item  id="17" filename="src/diff_sq_acc.cpp" linenumber="49" name="tmp_1_add_i32_shr_ca" contextFuncName="mm_to_stream" moduleName="mm_to_stream" rtlName="gmem_ARLEN" latency="0" BRAM="-1" DSP="-1" FF="-1" LUT="-1" fileDirectory="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\simple_test\ps_aurora_hls\ps_test_c2c_qsfp2_ps_slave\ip\mm_to_stream"><\/item>
+<item  id="22" filename="src/diff_sq_acc.cpp" linenumber="49" name="exitcond" contextFuncName="mm_to_stream" moduleName="mm_to_stream" rtlName="exitcond_fu_146_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="20" fileDirectory="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\simple_test\ps_aurora_hls\ps_test_c2c_qsfp2_ps_slave\ip\mm_to_stream"><\/item>
+<item  id="24" filename="src/diff_sq_acc.cpp" linenumber="49" name="indvar_next" contextFuncName="mm_to_stream" moduleName="mm_to_stream" rtlName="indvar_next_fu_151_p2" latency="0" BRAM="-1" DSP="-1" FF="0" LUT="34" fileDirectory="D:\project\RFSOC_EE\RFSoC_8T8R\matlab_test\hammer\simple_test\ps_aurora_hls\ps_test_c2c_qsfp2_ps_slave\ip\mm_to_stream"><\/item>
+<\/annotationInfo>
+</annotationInfo>

@@ -1,0 +1,1 @@
+set ::AESL_AUTOSIM::gTopFileName diff_sq_acc.cpp_pre.cpp.tb.cpp

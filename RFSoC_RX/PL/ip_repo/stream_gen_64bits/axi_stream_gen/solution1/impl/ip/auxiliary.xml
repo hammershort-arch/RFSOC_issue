@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xd:acceleratorMap xmlns:xd="http://www.xilinx.com/xidane" xd:functionName="steam_gen_64" xd:componentRef="steam_gen_64" xd:initiationInterval="x" xd:clockPeriod="10.000" xd:sequential="true" xd:hostMachine="64" xd:reset="control">
+  <xd:controlReg xd:name="control" xd:interfaceRef="ap_ctrl" xd:busTypeRef="acc_handshake" xd:type="acc_handshake"/>
+  <xd:arg xd:name="stream_data_gen.data" xd:originalName="stream_data_gen" xd:direction="out" xd:interfaceRef="stream_data_gen" xd:busTypeRef="axis" xd:dataWidth="128"/>
+  <xd:arg xd:name="stream_data_gen.keep" xd:originalName="stream_data_gen" xd:direction="out" xd:interfaceRef="stream_data_gen" xd:busTypeRef="axis" xd:dataWidth="16"/>
+  <xd:arg xd:name="stream_data_gen.strb" xd:originalName="stream_data_gen" xd:direction="out" xd:interfaceRef="stream_data_gen" xd:busTypeRef="axis" xd:dataWidth="16"/>
+  <xd:arg xd:name="stream_data_gen.user" xd:originalName="stream_data_gen" xd:direction="out" xd:interfaceRef="stream_data_gen" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="stream_data_gen.last" xd:originalName="stream_data_gen" xd:direction="out" xd:interfaceRef="stream_data_gen" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="stream_data_gen.id" xd:originalName="stream_data_gen" xd:direction="out" xd:interfaceRef="stream_data_gen" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="stream_data_gen.dest" xd:originalName="stream_data_gen" xd:direction="out" xd:interfaceRef="stream_data_gen" xd:busTypeRef="axis" xd:dataWidth="1"/>
+  <xd:arg xd:name="LEN" xd:originalName="LEN" xd:direction="in" xd:interfaceRef="LEN" xd:busTypeRef="register" xd:handshakeRef="ap_none" xd:dataWidth="32" xd:firstOut="1"/>
+  <xd:latencyEstimates xd:best-case="undef" xd:worst-case="undef" xd:average-case="undef"/>
+  <xd:resourceEstimates xd:LUT="307" xd:FF="378" xd:BRAM="0" xd:DSP="0"/>
+</xd:acceleratorMap>

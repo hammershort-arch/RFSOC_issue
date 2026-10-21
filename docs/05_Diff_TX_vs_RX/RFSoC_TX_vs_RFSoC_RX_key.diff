@@ -1,0 +1,309 @@
+# RFSoC_TX vs RFSoC_RX — key diff (normalized: RFSoC_TX/RFSoC_RX -> PRJ, checksum lines removed)
+# '-' = RFSoC_TX, '+' = RFSoC_RX
+--- TX/PL_source/PRJ.srcs/constrs_1/imports/new/design.xdc	2026-10-16 19:23:02.612814039 +0800
++++ RX/PL_source/PRJ.srcs/constrs_1/imports/new/design.xdc	2026-10-16 19:23:03.606997658 +0800
+@@ -17,7 +17,7 @@
+ set_property PACKAGE_PIN W34 [get_ports gt_x0y2_diff_ref_clk_n]
+ create_clock -name gt_x0y2_refclk -period 6.4 [get_ports gt_x0y2_diff_ref_clk_p]
+ #
+-# z2: quads 130/131 refclk0 (pins per golden ibert_47dr2To13p)
++# quads 130/131 refclk0 (pins per golden ibert_47dr1To13p)
+ set_property PACKAGE_PIN U33 [get_ports gt_x0y3_diff_ref_clk_p]
+ set_property PACKAGE_PIN U34 [get_ports gt_x0y3_diff_ref_clk_n]
+ create_clock -name gt_x0y3_refclk -period 6.4 [get_ports gt_x0y3_diff_ref_clk_p]
+--- TX/PL_source/PRJ.srcs/sources_1/bd/design_1/ip/design_1_usp_rf_data_converter_1_1/design_1_usp_rf_data_converter_1_1.xci	2026-10-16 19:23:02.357142478 +0800
++++ RX/PL_source/PRJ.srcs/sources_1/bd/design_1/ip/design_1_usp_rf_data_converter_1_1/design_1_usp_rf_data_converter_1_1.xci	2026-10-16 19:23:03.593906547 +0800
+@@ -43,7 +43,7 @@
+         "ADC0_PLL_Enable": [ { "value": "false", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+         "ADC0_Sampling_Rate": [ { "value": "3.84", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+         "ADC0_Refclk_Freq": [ { "value": "3840.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+-        "ADC0_Outclk_Freq": [ { "value": "240.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
++        "ADC0_Outclk_Freq": [ { "value": "30.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+         "ADC0_Fabric_Freq": [ { "value": "256.000", "resolve_type": "user", "format": "float", "enabled": false, "usage": "all" } ],
+         "ADC0_OBS_Fabric_Freq": [ { "value": "0.0", "resolve_type": "user", "format": "float", "enabled": false, "usage": "all" } ],
+         "ADC0_Link_Coupling": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
+@@ -133,7 +133,7 @@
+         "ADC1_PLL_Enable": [ { "value": "true", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+         "ADC1_Sampling_Rate": [ { "value": "3.84", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+         "ADC1_Refclk_Freq": [ { "value": "256.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+-        "ADC1_Outclk_Freq": [ { "value": "240.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
++        "ADC1_Outclk_Freq": [ { "value": "30.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+         "ADC1_Fabric_Freq": [ { "value": "256.000", "resolve_type": "user", "format": "float", "enabled": false, "usage": "all" } ],
+         "ADC1_OBS_Fabric_Freq": [ { "value": "0.0", "resolve_type": "user", "format": "float", "enabled": false, "usage": "all" } ],
+         "ADC1_Link_Coupling": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
+@@ -223,7 +223,7 @@
+         "ADC2_PLL_Enable": [ { "value": "false", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+         "ADC2_Sampling_Rate": [ { "value": "3.84", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+         "ADC2_Refclk_Freq": [ { "value": "3840.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+-        "ADC2_Outclk_Freq": [ { "value": "240.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
++        "ADC2_Outclk_Freq": [ { "value": "30.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+         "ADC2_Fabric_Freq": [ { "value": "256.000", "resolve_type": "user", "format": "float", "enabled": false, "usage": "all" } ],
+         "ADC2_OBS_Fabric_Freq": [ { "value": "0.0", "resolve_type": "user", "format": "float", "enabled": false, "usage": "all" } ],
+         "ADC2_Link_Coupling": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
+@@ -313,7 +313,7 @@
+         "ADC3_PLL_Enable": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+         "ADC3_Sampling_Rate": [ { "value": "3.84", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+         "ADC3_Refclk_Freq": [ { "value": "3840.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+-        "ADC3_Outclk_Freq": [ { "value": "240.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
++        "ADC3_Outclk_Freq": [ { "value": "30.000", "value_src": "user", "resolve_type": "user", "format": "float", "usage": "all" } ],
+         "ADC3_Fabric_Freq": [ { "value": "256.000", "resolve_type": "user", "format": "float", "enabled": false, "usage": "all" } ],
+         "ADC3_OBS_Fabric_Freq": [ { "value": "0.0", "resolve_type": "user", "format": "float", "enabled": false, "usage": "all" } ],
+         "ADC3_Link_Coupling": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
+@@ -729,7 +729,7 @@
+         "DAC_Data_Type30": [ { "value": "0", "resolve_type": "user", "usage": "all" } ],
+         "DAC_Data_Width30": [ { "value": "10", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+         "DAC_Interpolation_Mode30": [ { "value": "3", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+-        "DAC_Decoder_Mode30": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
++        "DAC_Decoder_Mode30": [ { "value": "0", "resolve_type": "user", "usage": "all" } ],
+         "DAC_Mixer_Type30": [ { "value": "2", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+         "DAC_Mixer_Mode30": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+         "DAC_Invsinc_Ctrl30": [ { "value": "true", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+@@ -738,7 +738,7 @@
+         "DAC_NCO_Phase30": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
+         "DAC_Neg_Quadrature30": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+         "DAC_Nyquist30": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+-        "DAC_Mode30": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
++        "DAC_Mode30": [ { "value": "0", "resolve_type": "user", "usage": "all" } ],
+         "DAC_RESERVED_1_30": [ { "value": "false", "resolve_type": "user", "format": "bool", "enabled": false, "usage": "all" } ],
+         "DAC_TDD_RTS30": [ { "value": "0", "resolve_type": "user", "usage": "all" } ],
+         "DAC_Slice31_Enable": [ { "value": "false", "resolve_type": "user", "format": "bool", "enabled": false, "usage": "all" } ],
+@@ -761,7 +761,7 @@
+         "DAC_Data_Type32": [ { "value": "0", "resolve_type": "user", "usage": "all" } ],
+         "DAC_Data_Width32": [ { "value": "10", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+         "DAC_Interpolation_Mode32": [ { "value": "3", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+-        "DAC_Decoder_Mode32": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
++        "DAC_Decoder_Mode32": [ { "value": "0", "resolve_type": "user", "usage": "all" } ],
+         "DAC_Mixer_Type32": [ { "value": "2", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+         "DAC_Mixer_Mode32": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
+         "DAC_Invsinc_Ctrl32": [ { "value": "true", "value_src": "user", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+@@ -770,7 +770,7 @@
+         "DAC_NCO_Phase32": [ { "value": "0", "resolve_type": "user", "format": "long", "usage": "all" } ],
+         "DAC_Neg_Quadrature32": [ { "value": "false", "resolve_type": "user", "format": "bool", "usage": "all" } ],
+         "DAC_Nyquist32": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+-        "DAC_Mode32": [ { "value": "0", "value_src": "user", "resolve_type": "user", "usage": "all" } ],
++        "DAC_Mode32": [ { "value": "0", "resolve_type": "user", "usage": "all" } ],
+         "DAC_RESERVED_1_32": [ { "value": "false", "resolve_type": "user", "format": "bool", "enabled": false, "usage": "all" } ],
+         "DAC_TDD_RTS32": [ { "value": "0", "resolve_type": "user", "usage": "all" } ],
+         "DAC_Slice33_Enable": [ { "value": "false", "resolve_type": "user", "format": "bool", "enabled": false, "usage": "all" } ],
+@@ -907,7 +907,7 @@
+         "C_ADC0_Sampling_Rate": [ { "value": "3.84", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC0_Fs_Max": [ { "value": "5.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC0_Refclk_Freq": [ { "value": "3840.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+-        "C_ADC0_Outclk_Freq": [ { "value": "240.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
++        "C_ADC0_Outclk_Freq": [ { "value": "30.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC0_FBDIV": [ { "value": "10", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+         "C_ADC0_OutDiv": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+         "C_ADC0_Vco": [ { "value": "8500.0", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+@@ -1007,7 +1007,7 @@
+         "C_ADC1_Sampling_Rate": [ { "value": "3.84", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC1_Fs_Max": [ { "value": "5.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC1_Refclk_Freq": [ { "value": "256.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+-        "C_ADC1_Outclk_Freq": [ { "value": "240.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
++        "C_ADC1_Outclk_Freq": [ { "value": "30.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC1_FBDIV": [ { "value": "45", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+         "C_ADC1_OutDiv": [ { "value": "3", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+         "C_ADC1_Vco": [ { "value": "11520.0", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+@@ -1107,7 +1107,7 @@
+         "C_ADC2_Sampling_Rate": [ { "value": "3.84", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC2_Fs_Max": [ { "value": "5.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC2_Refclk_Freq": [ { "value": "3840.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+-        "C_ADC2_Outclk_Freq": [ { "value": "240.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
++        "C_ADC2_Outclk_Freq": [ { "value": "30.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC2_FBDIV": [ { "value": "10", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+         "C_ADC2_OutDiv": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+         "C_ADC2_Vco": [ { "value": "8500.0", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+@@ -1207,7 +1207,7 @@
+         "C_ADC3_Sampling_Rate": [ { "value": "3.84", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC3_Fs_Max": [ { "value": "5.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC3_Refclk_Freq": [ { "value": "3840.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+-        "C_ADC3_Outclk_Freq": [ { "value": "240.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
++        "C_ADC3_Outclk_Freq": [ { "value": "30.000", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+         "C_ADC3_FBDIV": [ { "value": "10", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+         "C_ADC3_OutDiv": [ { "value": "1", "resolve_type": "generated", "format": "long", "usage": "all" } ],
+         "C_ADC3_Vco": [ { "value": "8500.0", "resolve_type": "generated", "format": "float", "usage": "all" } ],
+@@ -2687,11 +2687,11 @@
+           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
+           "mode": "slave",
+           "parameters": {
+-            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "auto_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "TDATA_NUM_BYTES": [ { "value": "20", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TDEST_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TID_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+-            "HAS_TREADY": [ { "value": "1", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "HAS_TREADY": [ { "value": "1", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "HAS_TSTRB": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "HAS_TKEEP": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "HAS_TLAST": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -2712,7 +2712,7 @@
+           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
+           "mode": "slave",
+           "parameters": {
+-            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "auto_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TDEST_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TID_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -2767,7 +2767,7 @@
+           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
+           "mode": "slave",
+           "parameters": {
+-            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "auto_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TDEST_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TID_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -2792,7 +2792,7 @@
+           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
+           "mode": "slave",
+           "parameters": {
+-            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "auto_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TDEST_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TID_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -2847,7 +2847,7 @@
+           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
+           "mode": "slave",
+           "parameters": {
+-            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "auto_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TDEST_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TID_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -2872,7 +2872,7 @@
+           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
+           "mode": "slave",
+           "parameters": {
+-            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "auto_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TDEST_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TID_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -2927,7 +2927,7 @@
+           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
+           "mode": "slave",
+           "parameters": {
+-            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "auto_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TDEST_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TID_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -2952,7 +2952,7 @@
+           "abstraction_type": "xilinx.com:interface:axis_rtl:1.0",
+           "mode": "slave",
+           "parameters": {
+-            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "auto_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "TDATA_NUM_BYTES": [ { "value": "20", "value_src": "constant_prop", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TDEST_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TID_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "TUSER_WIDTH": [ { "value": "0", "value_src": "constant", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -2989,7 +2989,7 @@
+           "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+           "mode": "master",
+           "parameters": {
+-            "FREQ_HZ": [ { "value": "240000000", "value_src": "user", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "FREQ_HZ": [ { "value": "30000000", "value_src": "user", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+             "CLK_DOMAIN": [ { "value": "design_1_usp_rf_data_converter_1_1_clk_adc0", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -3020,7 +3020,7 @@
+           "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+           "mode": "master",
+           "parameters": {
+-            "FREQ_HZ": [ { "value": "240000000", "value_src": "user", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "FREQ_HZ": [ { "value": "30000000", "value_src": "user", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+             "CLK_DOMAIN": [ { "value": "design_1_usp_rf_data_converter_1_1_clk_adc1", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -3038,7 +3038,7 @@
+           "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+           "mode": "master",
+           "parameters": {
+-            "FREQ_HZ": [ { "value": "240000000", "value_src": "user", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "FREQ_HZ": [ { "value": "30000000", "value_src": "user", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+             "CLK_DOMAIN": [ { "value": "design_1_usp_rf_data_converter_1_1_clk_adc2", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+@@ -3056,7 +3056,7 @@
+           "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+           "mode": "master",
+           "parameters": {
+-            "FREQ_HZ": [ { "value": "240000000", "value_src": "user", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "FREQ_HZ": [ { "value": "30000000", "value_src": "user", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "PHASE": [ { "value": "0.0", "value_permission": "bd", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+             "CLK_DOMAIN": [ { "value": "design_1_usp_rf_data_converter_1_1_clk_adc3", "value_permission": "bd", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+--- TX/PL_source/PRJ.srcs/sources_1/bd/design_1/ip/design_1_sync_out_latch_0_1/design_1_sync_out_latch_0_1.xci	2026-10-16 19:23:02.317210032 +0800
++++ RX/PL_source/PRJ.srcs/sources_1/bd/design_1/ip/design_1_sync_out_latch_0_1/design_1_sync_out_latch_0_1.xci	2026-10-16 19:23:03.551216044 +0800
+@@ -47,7 +47,7 @@
+           "abstraction_type": "xilinx.com:signal:clock_rtl:1.0",
+           "mode": "slave",
+           "parameters": {
+-            "FREQ_HZ": [ { "value": "240000000", "value_src": "user_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
++            "FREQ_HZ": [ { "value": "30000000", "value_src": "user_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "FREQ_TOLERANCE_HZ": [ { "value": "0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "long", "is_ips_inferred": true, "is_static_object": false } ],
+             "PHASE": [ { "value": "0.0", "value_permission": "bd_and_user", "resolve_type": "generated", "format": "float", "is_ips_inferred": true, "is_static_object": false } ],
+             "CLK_DOMAIN": [ { "value": "design_1_usp_rf_data_converter_1_1_clk_adc0", "value_src": "default_prop", "value_permission": "bd_and_user", "resolve_type": "generated", "is_ips_inferred": true, "is_static_object": false } ],
+--- TX/PL_source/PRJ.srcs/sources_1/bd/design_1/ip/design_1_axi_stream_combininp_0_0/design_1_axi_stream_combininp_0_0.xci	2026-10-16 19:23:02.027418729 +0800
++++ RX/PL_source/PRJ.srcs/sources_1/bd/design_1/ip/design_1_axi_stream_combininp_0_0/design_1_axi_stream_combininp_0_0.xci	2026-10-16 19:23:03.427216037 +0800
+@@ -2,7 +2,7 @@
+   "schema": "xilinx.com:schema:json_instance:1.0",
+   "ip_inst": {
+     "xci_name": "design_1_axi_stream_combininp_0_0",
+-    "cell_name": "rfdc_iq_combine_ch1",
++    "cell_name": "axi_stream_combininp_adc00",
+     "component_reference": "xilinx.com:module_ref:axi_stream_combininput:1.0",
+     "ip_revision": "1",
+     "gen_directory": "../../../../../../PRJ.gen/sources_1/bd/design_1/ip/design_1_axi_stream_combininp_0_0",
+--- TX/PL_source/PRJ.srcs/sources_1/ip/onebit_cdc_fifo/onebit_cdc_fifo.xci	2026-10-16 19:23:01.338177628 +0800
++++ RX/PL_source/PRJ.srcs/sources_1/ip/onebit_cdc_fifo/onebit_cdc_fifo.xci	2026-10-16 19:23:02.707035940 +0800
+@@ -4,7 +4,7 @@
+     "xci_name": "onebit_cdc_fifo",
+     "component_reference": "xilinx.com:ip:fifo_generator:13.2",
+     "ip_revision": "14",
+-    "gen_directory": "../../../../PRJ.gen/sources_1/ip/onebit_cdc_fifo",
++    "gen_directory": "../../../../RFSoC_TX.gen/sources_1/ip/onebit_cdc_fifo",
+     "parameters": {
+       "component_parameters": {
+         "Component_Name": [ { "value": "onebit_cdc_fifo", "resolve_type": "user", "usage": "all" } ],
+@@ -397,7 +397,7 @@
+         "IPCONTEXT": [ { "value": "IP_Flow" } ],
+         "IPREVISION": [ { "value": "14" } ],
+         "MANAGED": [ { "value": "TRUE" } ],
+-        "OUTPUTDIR": [ { "value": "../../../../PRJ.gen/sources_1/ip/onebit_cdc_fifo" } ],
++        "OUTPUTDIR": [ { "value": "../../../../RFSoC_TX.gen/sources_1/ip/onebit_cdc_fifo" } ],
+         "SELECTEDSIMMODEL": [ { "value": "" } ],
+         "SHAREDDIR": [ { "value": "." } ],
+         "SWVERSION": [ { "value": "2025.2" } ],
+--- TX/PL_source/PRJ.srcs/sources_1/new/cal_plus_gain_control/axi_stream_combininput.v
++++ RX/PL_source/PRJ.srcs/sources_1/new/axi_stream_combininput.v
+@@ -41,6 +41,8 @@
+ 
+     assign s0_tready = m_tready;
+     assign s1_tready = m_tready;
++    assign m1_tdata  = m_tdata;
++    assign m1_tvalid = m_tvalid;
+      
+     always@(posedge clk )begin
+         if(s0_tvalid&&s1_tvalid)begin
+--- TX/PL_source/PRJ.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_1/design_1_smartconnect_0_1.xci	2026-10-16 19:23:02.297592910 +0800
++++ RX/PL_source/PRJ.srcs/sources_1/bd/design_1/ip/design_1_smartconnect_0_1/design_1_smartconnect_0_1.xci	2026-10-16 19:23:03.538656047 +0800
+@@ -9,7 +9,7 @@
+-        "NUM_MI": [ { "value": "23", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
++        "NUM_MI": [ { "value": "5", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+         "NUM_SI": [ { "value": "1", "value_src": "user", "resolve_type": "user", "format": "long", "usage": "all" } ],
+@@ -182,477 +182,7 @@
+@@ -664,7 +194,7 @@
+@@ -683,7 +213,7 @@
+@@ -792,13 +322,13 @@
+@@ -809,16 +339,16 @@
+@@ -851,13 +381,13 @@
+@@ -868,16 +398,16 @@
+@@ -910,13 +440,13 @@
+@@ -927,16 +457,16 @@
+@@ -969,13 +499,13 @@
+@@ -986,16 +516,16 @@
+@@ -1028,13 +558,13 @@
+@@ -1045,16 +575,16 @@
+@@ -1078,1196 +608,6 @@

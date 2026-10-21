@@ -1,0 +1,67 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.21306",
+   "Default View_TopLeft":"359,262",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port USER_DATA_S_AXIS_TX -pg 1 -lvl 0 -x -20 -y 180 -defaultsOSRD
+preplace port USER_DATA_M_AXIS_RX -pg 1 -lvl 5 -x 1540 -y 60 -defaultsOSRD
+preplace port gt_x0y13_diff_ref -pg 1 -lvl 0 -x -20 -y 210 -defaultsOSRD
+preplace port GT_SERIAL_TX_0 -pg 1 -lvl 5 -x 1540 -y 240 -defaultsOSRD
+preplace port GT_SERIAL_RX_0 -pg 1 -lvl 0 -x -20 -y 250 -defaultsOSRD
+preplace port USER_DATA_S_AXIS_TX1 -pg 1 -lvl 0 -x -20 -y 680 -defaultsOSRD
+preplace port USER_DATA_M_AXIS_RX1 -pg 1 -lvl 5 -x 1540 -y 30 -defaultsOSRD
+preplace port GT_SERIAL_TX_2 -pg 1 -lvl 5 -x 1540 -y 750 -defaultsOSRD
+preplace port GT_SERIAL_RX_2 -pg 1 -lvl 0 -x -20 -y 650 -defaultsOSRD
+preplace port port-id_user_clk_out -pg 1 -lvl 5 -x 1540 -y 0 -defaultsOSRD
+preplace port port-id_init_clk -pg 1 -lvl 0 -x -20 -y 310 -defaultsOSRD
+preplace port port-id_pma_init_0 -pg 1 -lvl 0 -x -20 -y 820 -defaultsOSRD
+preplace port port-id_pma_init_1 -pg 1 -lvl 0 -x -20 -y 280 -defaultsOSRD
+preplace port port-id_arstn -pg 1 -lvl 5 -x 1540 -y 370 -defaultsOSRD
+preplace port port-id_arstn1 -pg 1 -lvl 5 -x 1540 -y 540 -defaultsOSRD
+preplace inst x0y13_core_status_0 -pg 1 -lvl 4 -x 1420 -y 960 -defaultsOSRD
+preplace inst aurora_x0y13_0 -pg 1 -lvl 2 -x 500 -y 250 -defaultsOSRD
+preplace inst aurora_x0y13_1 -pg 1 -lvl 3 -x 1060 -y 740 -defaultsOSRD
+preplace inst x0y13_core_status_1 -pg 1 -lvl 4 -x 1420 -y 150 -defaultsOSRD
+preplace inst auto_reset_aurora_0 -pg 1 -lvl 1 -x 130 -y 380 -defaultsOSRD
+preplace inst auto_reset_aurora_1 -pg 1 -lvl 2 -x 500 -y 580 -defaultsOSRD
+preplace inst aurora_rstn_0 -pg 1 -lvl 3 -x 1060 -y 370 -defaultsOSRD
+preplace inst aurora_rstn_1 -pg 1 -lvl 2 -x 500 -y 840 -defaultsOSRD
+preplace netloc aurora_64b66b_0_channel_up 1 2 2 860J 440 1270
+preplace netloc aurora_64b66b_0_gt_pll_lock 1 0 4 10 0 NJ 0 870 130 1290
+preplace netloc aurora_64b66b_0_user_clk_out 1 2 3 830 300 1310 0 NJ
+preplace netloc aurora_rstn_0_arstn 1 3 2 NJ 370 NJ
+preplace netloc aurora_rstn_1_arstn 1 2 3 720J 540 NJ 540 NJ
+preplace netloc aurora_x0y13_0_gt_qplllock_quad1_out 1 2 1 820 220n
+preplace netloc aurora_x0y13_0_gt_qpllrefclklost_quad1_out 1 2 1 810 240n
+preplace netloc aurora_x0y13_0_lane_up 1 2 2 NJ 140 1260
+preplace netloc aurora_x0y13_0_mmcm_not_locked_out 1 2 1 840 160n
+preplace netloc aurora_x0y13_0_sys_reset_out 1 2 1 N 380
+preplace netloc aurora_x0y13_1_channel_up 1 1 3 280 500 N 500 1280
+preplace netloc aurora_x0y13_1_gt_pll_lock 1 1 3 290 510 NJ 510 1300
+preplace netloc aurora_x0y13_1_lane_up 1 3 1 1320 180n
+preplace netloc aurora_x0y13_1_sys_reset_out 1 1 3 290 940 NJ 940 1250
+preplace netloc aurora_x0y13_gt_qpllclk_quad1_out 1 2 1 760 340n
+preplace netloc aurora_x0y13_gt_qpllrefclk_quad1_out 1 2 1 740 360n
+preplace netloc aurora_x0y13_gt_refclk1_out 1 2 1 770 420n
+preplace netloc aurora_x0y13_sync_clk_out 1 2 1 790 320n
+preplace netloc auto_reset_aurora_0_reset_pb 1 1 1 260 270n
+preplace netloc auto_reset_aurora_1_reset_pb 1 2 1 750 580n
+preplace netloc pma_init_0_1 1 0 3 NJ 820 250J 770 710J
+preplace netloc pma_init_1_1 1 0 2 NJ 280 250J
+preplace netloc util_ds_buf_0_IBUF_OUT 1 0 3 0 310 270 760 730
+preplace netloc GT_DIFF_REFCLK1_0_1 1 0 2 NJ 210 NJ
+preplace netloc GT_SERIAL_RX_0_1 1 0 2 NJ 250 NJ
+preplace netloc GT_SERIAL_RX_2_1 1 0 3 NJ 650 NJ 650 780J
+preplace netloc aurora_64b66b_0_GT_SERIAL_TX 1 2 3 850J 240 NJ 240 NJ
+preplace netloc aurora_64b66b_0_USER_DATA_M_AXIS_RX 1 2 3 NJ 60 NJ 60 NJ
+preplace netloc aurora_x0y13_1_GT_SERIAL_TX 1 3 2 NJ 750 NJ
+preplace netloc aurora_x0y13_1_USER_DATA_M_AXIS_RX 1 3 2 1250J 30 NJ
+preplace netloc axis_data_fifo_2_M_AXIS 1 0 3 NJ 680 NJ 680 800J
+preplace netloc axis_data_fifo_3_M_AXIS 1 0 2 NJ 180 250J
+levelinfo -pg 1 -20 130 500 1060 1420 1540
+pagesize -pg 1 -db -bbox -sgen -220 -140 1760 1050
+"
+}
+0

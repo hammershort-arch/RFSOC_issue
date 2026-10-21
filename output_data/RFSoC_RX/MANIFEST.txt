@@ -1,0 +1,10 @@
+RFSoC_RX_Debug_009 (2026-10-20 11:27)
+BOOT.bin = fsbl.elf + RFSoC_RX_Debug_009.bit + app_rx.elf (boot.bif, no PMUFW)
+
+sha256
+f21355350a53f82acb562bc084792a06aa803b9e4cdbda2402964082ae6a90a0  BOOT.bin
+bf915a8a6abf6de00fa23bf078438dff5b8a726925ebceb4f9ade9a3c771bca5  RFSoC_RX_Debug_009.bit
+727049e600ee451a9c7fb855cb4ed0d457ce27c2eecdd6de6fd31f1d2faca39e  RFSoC_RX_Debug_009.ltx
+e1e2c8ac2cd9325086ec534fc55c2028fb8350ec4006125bd4211b5c9b8367ca  RFSoC_RX_Debug_009.xsa
+a9c08a82a4bd6d3d338fdacca994ad0e34e73bad23164acfe4c37976a3365d8e  app_rx.elf
+b4f01d3b0e443290e01cdf702b783f78a0d29ae63a0c0bab75813131c86a58ed  fsbl.elf

@@ -1,0 +1,28 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"1.0",
+   "Default View_TopLeft":"-369,-95",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.8.0 2024-04-26 e1825d835c VDI=44 GEI=38 GUI=JA:21.0 TLS
+#  -string -flagsOSRD
+preplace port S_AXIS -pg 1 -lvl 0 -x -10 -y 170 -defaultsOSRD
+preplace port M_AXIS -pg 1 -lvl 3 -x 560 -y 220 -defaultsOSRD
+preplace port port-id_m_axis_aclk -pg 1 -lvl 0 -x -10 -y 70 -defaultsOSRD
+preplace port port-id_m_axis_aresetn -pg 1 -lvl 0 -x -10 -y 100 -defaultsOSRD
+preplace port port-id_s_axis_aresetn -pg 1 -lvl 0 -x -10 -y 200 -defaultsOSRD
+preplace port port-id_s_axis_aclk -pg 1 -lvl 0 -x -10 -y 230 -defaultsOSRD
+preplace inst header_insertion_v2_0 -pg 1 -lvl 1 -x 160 -y 80 -defaultsOSRD
+preplace inst axis_data_fifo_0 -pg 1 -lvl 2 -x 420 -y 220 -defaultsOSRD
+preplace inst axis_data_fifo_1 -pg 1 -lvl 2 -x 420 -y 70 -defaultsOSRD
+preplace netloc hier_x0y11_clk 1 0 2 20 180 300
+preplace netloc i_rstn_1 1 0 2 30J 210 NJ
+preplace netloc m_axis_aresetn_1 1 0 2 30 170 290J
+preplace netloc s_axis_aclk_1 1 0 2 NJ 230 NJ
+preplace netloc axis_data_fifo_0_M_AXIS 1 2 1 N 220
+preplace netloc data_pg_0_m_axi_rx 1 0 2 10J 190 NJ
+preplace netloc header_insertion_v2_0_m_axis 1 1 1 N 50
+levelinfo -pg 1 -10 160 420 560
+pagesize -pg 1 -db -bbox -sgen -170 -10 660 310
+"
+}
+0

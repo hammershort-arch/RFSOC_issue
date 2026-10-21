@@ -1,0 +1,23 @@
+
+
+create_pblock pblock_1
+add_cells_to_pblock [get_pblocks pblock_1] [get_cells -quiet [list aurora_gty_vu13p_rst_i/aurora_gty_vu13pto47_0/hier_x1y4/aurora_x1y4_0/inst/aurora_gty_vu13pto47dr_inst_0_aurora_x1y4_0_0_core_i/aurora_gty_vu13pto47dr_inst_0_aurora_x1y4_0_0_wrapper_i/aurora_gty_vu13pto47dr_inst_0_aurora_x1y4_0_0_multi_gt_i/aurora_gty_vu13pto47dr_inst_0_aurora_x1y4_0_0_gt_i]]
+resize_pblock [get_pblocks pblock_1] -add {SLICE_X206Y240:SLICE_X232Y299 \
+                                           BUFG_GT_X1Y96:BUFG_GT_X1Y119 \
+                                           BUFG_GT_SYNC_X1Y60:BUFG_GT_SYNC_X1Y74 \
+                                           DSP48E2_X30Y96:DSP48E2_X31Y119 \
+                                           GTYE4_CHANNEL_X1Y16:GTYE4_CHANNEL_X1Y19 \
+                                           GTYE4_COMMON_X1Y4:GTYE4_COMMON_X1Y4 \
+                                           PCIE40E4_X0Y1:PCIE40E4_X0Y1 \
+                                           RAMB18_X12Y96:RAMB18_X13Y119 \
+                                           RAMB36_X12Y48:RAMB36_X13Y59 \
+}
+set_property IS_SOFT FALSE [get_pblocks pblock_1]
+# Debug_007 (2026-10-17): dbg_hub 由 Aurora x1y9 user_clk (400 MHz, net clk) 改成 sys_clk 100 MHz (free-running);
+#   原本加 ila_bcast_1 後 XSDB 跨 SLR 路徑 WNS -0.188 ns. 原設定:
+# set_property C_CLK_INPUT_FREQ_HZ 300000000 [get_debug_cores dbg_hub]
+set_property C_CLK_INPUT_FREQ_HZ 100000000 [get_debug_cores dbg_hub]
+set_property C_ENABLE_CLK_DIVIDER false [get_debug_cores dbg_hub]
+set_property C_USER_SCAN_CHAIN 1 [get_debug_cores dbg_hub]
+# connect_debug_port dbg_hub/clk [get_nets clk]
+connect_debug_port dbg_hub/clk [get_nets {aurora_gty_vu13p_rst_i/util_ds_buf_0_IBUF_OUT[0]}]
